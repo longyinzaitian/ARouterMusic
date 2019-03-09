@@ -208,8 +208,9 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             /**
              * 如果利用重新分组，就需要在build中进行指定的分组不然没有效果
              */
-            ARouter.getInstance()
-                    .build(RouteUtils.Me_Test2, "needLogin")
+            ((Postcard)(ARouter.getInstance()
+                    .build(RouteUtils.Me_Test2)
+                    .setGroup("needLogin")))
                     .navigation(getContext(), new NavCallback() {
                         @Override
                         public void onFound(Postcard postcard) {

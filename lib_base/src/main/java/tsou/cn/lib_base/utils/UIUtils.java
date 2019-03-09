@@ -170,7 +170,7 @@ public class UIUtils {
      */
 
     public static Drawable getDrawbleForBitmap(Bitmap bitmap) {
-        Drawable drawable = new BitmapDrawable(bitmap);
+        Drawable drawable = new BitmapDrawable(getResources(), bitmap);
         return drawable;
     }
 
@@ -451,7 +451,7 @@ public class UIUtils {
                 .getRunningServices(40);
         int size = serviceList.size();
         for (int i = 0; i < size; i++) {
-            if (serviceList.get(i).service.getClassName().equals(className) == true) {
+            if (serviceList.get(i).service.getClassName().equals(className)) {
                 isRun = true;
                 break;
             }
