@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="tsou.cn.module_me">
+    package="video.cn.me">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="video.cn.me.MainActivity">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -18,14 +18,14 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.EventBusActivity" />
-        <activity android:name=".activity.TextOneActivity" />
-        <activity android:name=".activity.TestActivity" />
-        <activity android:name=".activity.WebViewActivity" />
-        <activity android:name=".activity.InjectActivity" />
-        <activity android:name=".activity.Test2Activity" />
-        <activity android:name=".activity.Test3Activity" />
+        <activity android:name="video.cn.me.activity.LoginActivity" />
+        <activity android:name="video.cn.me.activity.EventBusActivity" />
+        <activity android:name="video.cn.me.activity.TextOneActivity" />
+        <activity android:name="video.cn.me.activity.TestActivity" />
+        <activity android:name="video.cn.me.activity.WebViewActivity" />
+        <activity android:name="video.cn.me.activity.InjectActivity" />
+        <activity android:name="video.cn.me.activity.Test2Activity" />
+        <activity android:name="video.cn.me.activity.Test3Activity" />
     </application>
 
 </manifest>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tsou.cn.module_chat.activity.ForResultActivity">
+    tools:context="video.cn.chat.activity.ForResultActivity">
 
     <Button
         android:id="@+id/finish"
