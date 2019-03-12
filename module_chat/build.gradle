@@ -3,6 +3,9 @@ if (!isNeedChatModule.toBoolean()) {
 } else {
     apply plugin: 'com.android.library'
 }
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
 android {
     compileSdkVersion rootProject.ext.compile_sdk_v
     buildToolsVersion rootProject.ext.build_tools_v
@@ -46,4 +49,5 @@ dependencies {
     api project(':lib_icon')
     api "com.android.support:appcompat-v7:${rootProject.ext.support_v}"
     annotationProcessor "com.alibaba:arouter-compiler:${rootProject.ext.arouter_compile_v}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

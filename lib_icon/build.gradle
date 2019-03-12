@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion rootProject.ext.compile_sdk_v
@@ -28,4 +30,5 @@ dependencies {
     })
     testImplementation 'junit:junit:4.12'
     api "com.android.support:appcompat-v7:${rootProject.ext.support_v}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

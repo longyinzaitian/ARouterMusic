@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion rootProject.ext.compile_sdk_v
@@ -40,4 +42,5 @@ dependencies {
     annotationProcessor "com.alibaba:arouter-compiler:${rootProject.ext.arouter_compile_v}"
     api "org.simple:androideventbus:${rootProject.ext.event_bus_v}"
     api "com.alibaba:fastjson:${rootProject.ext.fast_json_v}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

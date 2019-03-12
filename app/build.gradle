@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion rootProject.ext.compile_sdk_v
@@ -71,4 +73,5 @@ dependencies {
         api project(':module_me')
     }
     api "com.android.support:appcompat-v7:${rootProject.ext.support_v}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

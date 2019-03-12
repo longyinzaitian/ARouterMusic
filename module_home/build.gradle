@@ -3,6 +3,8 @@ if (!isNeedHomeModule.toBoolean()) {
 } else {
     apply plugin: 'com.android.library'
 }
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion rootProject.ext.compile_sdk_v
@@ -43,4 +45,5 @@ dependencies {
     annotationProcessor "com.alibaba:arouter-compiler:${rootProject.ext.arouter_compile_v}"
     api project(':lib_base')
     api project(':lib_icon')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
