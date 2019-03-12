@@ -35,15 +35,9 @@ dependencies {
     api 'com.android.support:support-v4:28.0.0'
     api 'com.android.support:support-media-compat:28.0.0'
     testImplementation 'junit:junit:4.12'
-    api ('com.alibaba:arouter-api:1.2.4', {
-        exclude group: 'com.android.support'
-    })
-    annotationProcessor ("com.alibaba:arouter-compiler:1.1.4", {
-        exclude group: 'com.android.support'
-    })
+    api 'com.alibaba:arouter-api:1.2.4'
+    annotationProcessor "com.alibaba:arouter-compiler:1.1.4"
     api 'com.android.support:design:28.0.0'
-    api ('org.simple:androideventbus:1.0.5.1', {
-        exclude group: 'com.android.support'
-    })
+    api 'org.simple:androideventbus:1.0.5.1'
     api 'com.alibaba:fastjson:1.2.9'
 }
