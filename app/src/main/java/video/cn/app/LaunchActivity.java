@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 
+import video.cn.base.utils.ThreadCenter;
+
 /**
  *
  * @author husyin
@@ -35,7 +37,7 @@ public class LaunchActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        new Thread(new Runnable() {
+        ThreadCenter.Companion.getThreadCenter().postRunnable(new Runnable() {
             @Override
             public void run() {
                 long start = System.currentTimeMillis();
@@ -51,7 +53,7 @@ public class LaunchActivity extends AppCompatActivity {
                 startActivity(new Intent(LaunchActivity.this, MainActivity.class));
                 finish();
             }
-        }).start();
+        });
 
     }
 }
