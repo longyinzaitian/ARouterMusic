@@ -45,7 +45,5 @@ dependencies {
     api ('org.simple:androideventbus:1.0.5.1', {
         exclude group: 'com.android.support'
     })
-    api ('com.alibaba:fastjson:1.2.9', {
-        exclude group: 'com.android.support'
-    })
+    api 'com.alibaba:fastjson:1.2.9'
 }
