@@ -5,15 +5,15 @@ if (!isNeedHomeModule.toBoolean()) {
 }
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
+    compileSdkVersion rootProject.ext.compile_sdk_v
+    buildToolsVersion rootProject.ext.build_tools_v
 
     defaultConfig {
         if (!isNeedHomeModule.toBoolean()) {
             applicationId "tsou.cn.module_home"
         }
-        minSdkVersion 15
-        targetSdkVersion 26
+        minSdkVersion rootProject.ext.min_sdk_v
+        targetSdkVersion rootProject.ext.target_sdk_v
         versionCode 1
         versionName "1.0"
 
@@ -37,10 +37,10 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    api 'com.android.support:appcompat-v7:28.0.0'
-    api 'com.android.support.constraint:constraint-layout:1.1.3'
+    api "com.android.support.constraint:constraint-layout:${rootProject.ext.constraint_v}"
     testImplementation 'junit:junit:4.12'
-    annotationProcessor "com.alibaba:arouter-compiler:1.1.4"
+    api "com.android.support:appcompat-v7:${rootProject.ext.support_v}"
+    annotationProcessor "com.alibaba:arouter-compiler:${rootProject.ext.arouter_compile_v}"
     api project(':lib_base')
     api project(':lib_icon')
 }
