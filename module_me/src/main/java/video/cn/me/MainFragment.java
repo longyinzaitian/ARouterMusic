@@ -35,7 +35,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle
             savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_me, null);
+        View view = inflater.inflate(R.layout.fragment_me, container, false);
         initView(view);
         return view;
     }
@@ -46,7 +46,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     }
 
     private void initView(View view) {
-        mAutoInject = (Button) view.findViewById(R.id.autoInject);
+        mAutoInject = view.findViewById(R.id.autoInject);
         mAutoInject.setOnClickListener(this);
     }
 

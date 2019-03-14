@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         if (!isNeedMeModule.toBoolean()) {
-            applicationId "tsou.cn.module_me"
+            applicationId "video.cn.men"
         }
 
         minSdkVersion rootProject.ext.min_sdk_v

@@ -43,8 +43,8 @@ public class Test2Activity extends AppCompatActivity {
     }
 
     private void initView() {
-        mTextView = (TextView) findViewById(R.id.textView);
-        mBtnBackData = (Button) findViewById(R.id.btn_back_data);
+        mTextView = findViewById(R.id.textView);
+        mBtnBackData = findViewById(R.id.btn_back_data);
         mBtnBackData.setText("finish");
         mBtnBackData.setVisibility(View.GONE);
         mTextView.setText("extra==>" + extra);

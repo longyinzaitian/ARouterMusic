@@ -35,7 +35,7 @@ public class InterceptorActivity extends AppCompatActivity {
 
     }
     private void initView() {
-        mTextView = (TextView) findViewById(R.id.textView);
+        mTextView = findViewById(R.id.textView);
         mTextView.setText("extra==>" + extra);
     }
 }

@@ -1,6 +1,7 @@
 package video.cn.chat;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,10 +19,9 @@ import video.cn.base.utils.RouteUtils;
 public class MainFragment extends Fragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle
             savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_weichat, null);
-        return view;
+        return inflater.inflate(R.layout.fragment_weichat, container, false);
     }
 
     @Override

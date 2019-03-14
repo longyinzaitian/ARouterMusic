@@ -11,6 +11,8 @@ import com.alibaba.android.arouter.launcher.ARouter;
 
 import org.simple.eventbus.EventBus;
 
+import java.util.Locale;
+
 import video.cn.base.bean.EventBusBean;
 import video.cn.base.data.EvenBusTag;
 import video.cn.base.utils.RouteUtils;
@@ -35,7 +37,7 @@ public class EventBusActivity extends AppCompatActivity implements View.OnClickL
     private String name;
 
     private long age;
-    private EventBusBean eventbus;
+    private EventBusBean eventBus;
 
 
     @Override
@@ -50,15 +52,16 @@ public class EventBusActivity extends AppCompatActivity implements View.OnClickL
     private void initData() {
         name = getIntent().getStringExtra("name");
         age = getIntent().getLongExtra("age", 0);
-        eventbus = getIntent().getParcelableExtra("eventbus");
+        eventBus = getIntent().getParcelableExtra("eventbus");
     }
 
     private void initView() {
-        mTextView = (TextView) findViewById(R.id.textView);
-        mBtnBackData = (Button) findViewById(R.id.btn_back_data);
+        mTextView = findViewById(R.id.textView);
+        mBtnBackData = findViewById(R.id.btn_back_data);
         mBtnBackData.setOnClickListener(this);
-        mTextView.setText("name=" + name + ",\tage=" + age + ",\tproject=" + eventbus.getProject() +
-                ",\tnum=" + eventbus.getNum());
+
+        mTextView.setText(String.format(Locale.getDefault(),"name=%s,\tage=%d,\tproject=%s,\tnum=%d",
+                name, age, eventBus.getProject(), eventBus.getNum()));
     }
 
     @Override
@@ -67,7 +70,6 @@ public class EventBusActivity extends AppCompatActivity implements View.OnClickL
         if (i == R.id.btn_back_data) {
             EventBus.getDefault().post(name, EvenBusTag.GOTO_EVENT_BUS);
             finish();
-        } else {
         }
     }
 }

@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         if (!isNeedChatModule.toBoolean()) {
-            applicationId "tsou.cn.module_chat"
+            applicationId "video.cn.chat"
         }
         minSdkVersion rootProject.ext.min_sdk_v
         targetSdkVersion rootProject.ext.target_sdk_v

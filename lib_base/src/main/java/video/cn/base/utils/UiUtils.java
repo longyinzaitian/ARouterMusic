@@ -374,14 +374,16 @@ public class UiUtils {
 
     }
 
-    //android获取网络视频第一帧
+    /**
+     * android获取网络视频第一帧
+     */
     public static Bitmap getNetVideoBitmap(String videoUrl) {
         Bitmap bitmap = null;
 
         MediaMetadataRetriever retriever = new MediaMetadataRetriever();
         try {
             //根据url获取缩略图
-            retriever.setDataSource(videoUrl, new HashMap());
+            retriever.setDataSource(videoUrl, new HashMap<String, String>(2));
             //获得第一帧图片
             bitmap = retriever.getFrameAtTime();
         } catch (IllegalArgumentException e) {

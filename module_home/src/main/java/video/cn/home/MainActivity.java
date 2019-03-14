@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
  * @date 2019年3月10日
  */
 public class MainActivity extends AppCompatActivity {
-    private FragmentManager fragmentManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         initView();
     }
     private void initView() {
-        fragmentManager = getSupportFragmentManager();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.fl_main, new MainFragment())
                 .commitAllowingStateLoss();
     }

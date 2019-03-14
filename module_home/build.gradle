@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         if (!isNeedHomeModule.toBoolean()) {
-            applicationId "tsou.cn.module_home"
+            applicationId "video.cn.home"
         }
         minSdkVersion rootProject.ext.min_sdk_v
         targetSdkVersion rootProject.ext.target_sdk_v

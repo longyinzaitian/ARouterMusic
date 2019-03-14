@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
+import java.util.Locale;
+
 import video.cn.base.bean.EventBusBean;
 import video.cn.base.utils.RouteUtils;
 import video.cn.me.R;
@@ -31,7 +33,7 @@ public class TextOneActivity extends AppCompatActivity {
     private String name;
 
     private long age;
-    private EventBusBean eventbus;
+    private EventBusBean eventBus;
 
 
     @Override
@@ -45,15 +47,17 @@ public class TextOneActivity extends AppCompatActivity {
     private void initData() {
         name = getIntent().getStringExtra("name");
         age = getIntent().getLongExtra("age", 0);
-        eventbus = getIntent().getParcelableExtra("eventbus");
+        eventBus = getIntent().getParcelableExtra("eventbus");
     }
 
     private void initView() {
-        mTextView = (TextView) findViewById(R.id.textView);
-        mBtnBackData = (Button) findViewById(R.id.btn_back_data);
+        mTextView = findViewById(R.id.textView);
+        mBtnBackData = findViewById(R.id.btn_back_data);
         mBtnBackData.setVisibility(View.GONE);
-        mTextView.setText("name=" + name + ",\tage=" + age + ",\tproject=" + eventbus.getProject() +
-                ",\tnum=" + eventbus.getNum());
+
+        String str = String.format(Locale.getDefault(), "name=%s,\tage=%d,\tproject=%s,\tnum=%d",
+                                                name, age, eventBus.getProject(), eventBus.getNum());
+        mTextView.setText(str);
     }
 
 

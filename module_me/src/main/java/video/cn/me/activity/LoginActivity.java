@@ -14,6 +14,8 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.facade.callback.NavCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
 
+import java.util.Locale;
+
 import video.cn.base.utils.RouteUtils;
 import video.cn.base.utils.UiUtils;
 import video.cn.me.R;
@@ -52,14 +54,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void initView() {
-        mBtnForResult = (Button) findViewById(R.id.btn_forResult);
+        mBtnForResult = findViewById(R.id.btn_forResult);
         mBtnForResult.setOnClickListener(this);
-        mInterceptor = (Button) findViewById(R.id.interceptor);
+        mInterceptor = findViewById(R.id.interceptor);
         mInterceptor.setOnClickListener(this);
-        mPath = (TextView) findViewById(R.id.path);
+        mPath = findViewById(R.id.path);
 
         if (!TextUtils.isEmpty(path)) {
-            mPath.setText("登录完成后要跳转的路径===>" + path);
+            String pathStr = String.format(Locale.getDefault(), "登录完成后要跳转的路径===>%s", path);
+            mPath.setText(pathStr);
         }
     }
 
@@ -71,10 +74,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             ARouter.getInstance()
                     .build(RouteUtils.CHAT_FOR_RESULT)
                     .navigation(this, 666);
+
         } else if (id == R.id.interceptor) {
-            /**
-             * 路由拦截
-             */
             ARouter.getInstance()
                     .build(RouteUtils.CHAT_INTERCEPTOR)
                     .navigation(this, new NavCallback() {

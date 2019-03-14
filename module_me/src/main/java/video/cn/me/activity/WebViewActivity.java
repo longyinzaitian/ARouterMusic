@@ -26,7 +26,7 @@ public class WebViewActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        mWebview = (WebView) findViewById(R.id.webview);
+        mWebview = findViewById(R.id.webview);
         mWebview.loadUrl(getIntent().getStringExtra("url"));
     }
 }

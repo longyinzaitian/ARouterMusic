@@ -13,7 +13,7 @@ import video.cn.chat.net.ChatService;
  * @date 2019年3月10日
  */
 @Route(path = RouteUtils.SERVICE_CHAT)
-public class ChatModuleService implements IChatModuleService {
+public class ChatModuleServiceImpl implements IChatModuleService {
 
     @Override
     public String getUserName(String userId) {

@@ -31,7 +31,7 @@ public class ForResultActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void initView() {
-        mFinish = (Button) findViewById(R.id.finish);
+        mFinish = findViewById(R.id.finish);
         mFinish.setOnClickListener(this);
     }
 
@@ -43,7 +43,6 @@ public class ForResultActivity extends AppCompatActivity implements View.OnClick
             intent.putExtra("name", "ForResult返回的数据");
             setResult(999, intent);
             finish();
-        } else {
         }
     }
 }

@@ -30,8 +30,8 @@ public class InjectActivity extends AppCompatActivity {
     @Autowired
     int age = 13;
 
-    @Autowired(name = "boy")//映射参数名
-            boolean sex;
+    @Autowired(name = "boy")
+    boolean sex;
 
     @Autowired
     long high = 160;
@@ -52,7 +52,7 @@ public class InjectActivity extends AppCompatActivity {
     Map<String, List<JavaBean>> map;
 
     @Autowired
-    int height = 21;//上页面没有传递
+    int height = 21;
 
     private TextView mTextView;
 
@@ -65,7 +65,7 @@ public class InjectActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        mTextView = (TextView) findViewById(R.id.textView);
+        mTextView = findViewById(R.id.textView);
         String params = String.format(
                 "name=%s,\n age=%s, \n height=%s,\n girl=%s,\n high=%s,\n url=%s,\n pac=%s,\n obj=%s \n" +
                         "  objList=%s, \n map=%s",

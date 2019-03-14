@@ -20,7 +20,7 @@ android {
         }
     }
     defaultConfig {
-        applicationId "tsou.cn.myaroutertest"
+        applicationId "video.cn.app"
         minSdkVersion rootProject.ext.min_sdk_v
         targetSdkVersion rootProject.ext.target_sdk_v
         versionCode rootProject.ext.app_version_code
