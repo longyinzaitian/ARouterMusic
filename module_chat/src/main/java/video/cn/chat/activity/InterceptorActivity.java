@@ -13,7 +13,7 @@ import video.cn.chat.R;
  * @author husyin
  * @date 2019年3月10日
  */
-@Route(path = RouteUtils.Chat_Interceptor)
+@Route(path = RouteUtils.CHAT_INTERCEPTOR)
 public class InterceptorActivity extends AppCompatActivity {
 
     /**

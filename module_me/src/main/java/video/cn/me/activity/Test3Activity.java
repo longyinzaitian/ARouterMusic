@@ -15,7 +15,7 @@ import video.cn.me.R;
  * @author husyin
  * @date 2019年3月10日
  */
-@Route(path = RouteUtils.NeedLogin_Test3)
+@Route(path = RouteUtils.NEED_LOGIN_TEST_3)
 public class Test3Activity extends AppCompatActivity {
 
     /**

@@ -15,14 +15,14 @@ import com.alibaba.android.arouter.facade.callback.NavCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
 
 import video.cn.base.utils.RouteUtils;
-import video.cn.base.utils.UIUtils;
+import video.cn.base.utils.UiUtils;
 import video.cn.me.R;
 
 /**
  * @author husyin
  * @date 2019年3月10日
  */
-@Route(path = RouteUtils.Me_Login)
+@Route(path = RouteUtils.ME_LOGIN)
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     /**
@@ -69,14 +69,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (id == R.id.btn_forResult) {
             //跳转ForResult,在fragment中使用不起作用
             ARouter.getInstance()
-                    .build(RouteUtils.Chat_ForResult)
+                    .build(RouteUtils.CHAT_FOR_RESULT)
                     .navigation(this, 666);
         } else if (id == R.id.interceptor) {
             /**
              * 路由拦截
              */
             ARouter.getInstance()
-                    .build(RouteUtils.Chat_Interceptor)
+                    .build(RouteUtils.CHAT_INTERCEPTOR)
                     .navigation(this, new NavCallback() {
                         @Override
                         public void onFound(Postcard postcard) {
@@ -114,7 +114,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (requestCode) {
             case 666:
                 String name = data.getStringExtra("name");
-                UIUtils.showToast(name + ",resultCode===>" + resultCode);
+                UiUtils.showToast(name + ",resultCode===>" + resultCode);
                 break;
             default:
                 break;

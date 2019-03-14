@@ -16,7 +16,7 @@ import video.cn.me.R;
  * @author husyin
  * @date 2019年3月10日
  */
-@Route(path = RouteUtils.Me_TextOne)
+@Route(path = RouteUtils.ME_TEXT_ONE)
 public class TextOneActivity extends AppCompatActivity {
 
     /**

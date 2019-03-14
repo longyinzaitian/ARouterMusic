@@ -22,7 +22,7 @@ import video.cn.me.R;
  * @author husyin
  * @date 2019年3月10日
  */
-@Route(path = RouteUtils.Me_Inject)
+@Route(path = RouteUtils.ME_INJECT)
 public class InjectActivity extends AppCompatActivity {
     @Autowired
     String name = "hahahha";

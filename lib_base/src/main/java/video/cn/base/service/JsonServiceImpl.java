@@ -16,7 +16,7 @@ import video.cn.base.utils.RouteUtils;
  * @author husyin
  * @date 2019年3月10日
  */
-@Route(path = RouteUtils.Home_Json_Service,name = "序列化JavaBean使用")
+@Route(path = RouteUtils.HOME_JSON_SERVICE,name = "序列化JavaBean使用")
 public class JsonServiceImpl implements SerializationService {
     @Override
     public void init(Context context) {

@@ -15,7 +15,7 @@ import video.cn.chat.R;
  * @author husyin
  * @date 2019年3月10日
  */
-@Route(path = RouteUtils.Chat_ForResult)
+@Route(path = RouteUtils.CHAT_FOR_RESULT)
 public class ForResultActivity extends AppCompatActivity implements View.OnClickListener {
 
     /**

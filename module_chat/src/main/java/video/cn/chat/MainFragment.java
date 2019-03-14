@@ -14,7 +14,7 @@ import video.cn.base.utils.RouteUtils;
  * @author husyin
  * @date 2019年3月10日
  */
-@Route(path = RouteUtils.Chat_Fragment_Main)
+@Route(path = RouteUtils.CHAT_FRAGMENT_MAIN)
 public class MainFragment extends Fragment {
 
     @Override

@@ -20,7 +20,7 @@ import video.cn.me.R;
  * @author husyin
  * @date 2019年3月10日
  */
-@Route(path = RouteUtils.Me_EventBus)
+@Route(path = RouteUtils.ME_EVENT_BUS)
 public class EventBusActivity extends AppCompatActivity implements View.OnClickListener {
 
     /**

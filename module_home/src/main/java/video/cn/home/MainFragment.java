@@ -30,13 +30,13 @@ import video.cn.base.data.EvenBusTag;
 import video.cn.base.provider.IChatModuleService;
 import video.cn.base.service.ModuleRouteService;
 import video.cn.base.utils.RouteUtils;
-import video.cn.base.utils.UIUtils;
+import video.cn.base.utils.UiUtils;
 
 /**
  * @author husyin
  * @date 2019年3月10日
  */
-@Route(path = RouteUtils.Home_Fragment_Main)
+@Route(path = RouteUtils.HOME_FRAGMENT_MAIN)
 public class MainFragment extends Fragment implements View.OnClickListener {
 
     /**
@@ -156,7 +156,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         int id = v.getId();
         if (id == R.id.btn_goto_login) {
             //登录（跨模块跳转Activity）
-            ARouter.getInstance().build(RouteUtils.Me_Login).navigation();
+            ARouter.getInstance().build(RouteUtils.ME_LOGIN).navigation();
         } else if (id == R.id.btn_eventbus) {
             // 跳转并携带参数,基本涵盖所以类型传递，具体可以查看Postcard类
             //传递过去的值使用getIntent()接收
@@ -166,7 +166,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             eventBusBean.setProject("android");
             eventBusBean.setNum(3);
 
-            ARouter.getInstance().build(RouteUtils.Me_EventBus)
+            ARouter.getInstance().build(RouteUtils.ME_EVENT_BUS)
                     .withString("name", "haungxiaoguo")
                     .withLong("age", 25)
                     .withParcelable("eventbus", eventBusBean)
@@ -186,7 +186,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         } else if (id == R.id.oldVersionAnim) {
             //旧版本转场动画
             ARouter.getInstance()
-                    .build(RouteUtils.Me_Test)
+                    .build(RouteUtils.ME_TEST)
                     .withTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom)
                     .navigation(getContext());//context上下文不传无效果
 
@@ -196,16 +196,16 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                 ActivityOptionsCompat compat = ActivityOptionsCompat.
                         makeScaleUpAnimation(v, v.getWidth() / 2, v.getHeight() / 2, 0, 0);
                 ARouter.getInstance()
-                        .build(RouteUtils.Me_Test)
+                        .build(RouteUtils.ME_TEST)
                         .withOptionsCompat(compat)
                         .navigation();
             } else {
-                UIUtils.showToast("API < 16,不支持新版本动画");
+                UiUtils.showToast("API < 16,不支持新版本动画");
             }
         } else if (id == R.id.navByUrl) {
             //通过URL跳转（webview）
             ARouter.getInstance()
-                    .build(RouteUtils.Me_WebView)
+                    .build(RouteUtils.ME_WEB_VIEW)
                     .withString("url", "file:///android_asset/schame-test.html")
                     .navigation();
         } else if (id == R.id.interceptor) {
@@ -213,7 +213,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
              * 如果利用重新分组，就需要在build中进行指定的分组不然没有效果
              */
             ((Postcard)(ARouter.getInstance()
-                    .build(RouteUtils.Me_Test2)
+                    .build(RouteUtils.ME_TEST_2)
                     .setGroup("needLogin")))
                     .navigation(getContext(), new NavCallback() {
                         @Override
@@ -245,12 +245,12 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                     });
         } else if (id == R.id.interceptor1) {
             //拦截器操作(利用原有分组)
-            ARouter.getInstance().build(RouteUtils.NeedLogin_Test3)
+            ARouter.getInstance().build(RouteUtils.NEED_LOGIN_TEST_3)
                     .navigation();
 
         } else if (id == R.id.interceptor2) {
             //拦截器操作(绿色通道，跳过拦截器)
-            ARouter.getInstance().build(RouteUtils.NeedLogin_Test3)
+            ARouter.getInstance().build(RouteUtils.NEED_LOGIN_TEST_3)
                     .withString("extra", "我是绿色通道直接过来的，不经过拦截器")
                     .greenChannel()
                     .navigation();
@@ -276,7 +276,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             Map<String, List<JavaBean>> map = new HashMap<>();
             map.put("testMap", objList);
 
-            ARouter.getInstance().build(RouteUtils.Me_Inject)
+            ARouter.getInstance().build(RouteUtils.ME_INJECT)
                     .withString("name", "老王")
                     .withInt("age", 18)
                     .withBoolean("boy", true)
@@ -291,41 +291,41 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             //模块间服务调用
             //例如home模块调用chat模块的方法
             String userName = ModuleRouteService.getUserName("userId");
-            UIUtils.showToast(userName);
+            UiUtils.showToast(userName);
         } else if (id == R.id.btn_use_other_module_by_name) {
             //模块间通过路径名称调用服务
             String userName = ((IChatModuleService) ARouter.getInstance()
-                    .build(RouteUtils.Service_Chat)
+                    .build(RouteUtils.SERVICE_CHAT)
                     .navigation())
                     .getUserName("userid");
-            UIUtils.showToast(userName);
+            UiUtils.showToast(userName);
         } else if (id == R.id.btn_use_other_module_by_type) {
             //模块间通过类名调用服务
             String userName = ARouter.getInstance()
                     .navigation(IChatModuleService.class)
                     .getUserName("userid");
-            UIUtils.showToast(userName);
+            UiUtils.showToast(userName);
         } else if (id == R.id.failNav) {
             //跳转失败
             ARouter.getInstance().build("/xxx/xxx").navigation(getContext(), new NavCallback() {
                 @Override
                 public void onFound(Postcard postcard) {
-                    UIUtils.showToast("找到了");
+                    UiUtils.showToast("找到了");
                 }
 
                 @Override
                 public void onLost(Postcard postcard) {
-                    UIUtils.showToast("找不到了");
+                    UiUtils.showToast("找不到了");
                 }
 
                 @Override
                 public void onArrival(Postcard postcard) {
-                    UIUtils.showToast("跳转完了");
+                    UiUtils.showToast("跳转完了");
                 }
 
                 @Override
                 public void onInterrupt(Postcard postcard) {
-                    UIUtils.showToast("被拦截了");
+                    UiUtils.showToast("被拦截了");
                 }
             });
         }
@@ -333,7 +333,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
     @Subscriber(tag = EvenBusTag.GOTO_EVENT_BUS)
     public void onEvent(String s) {
-        UIUtils.showToast(s);
+        UiUtils.showToast(s);
     }
 
 }

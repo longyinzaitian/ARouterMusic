@@ -12,7 +12,7 @@ import video.cn.chat.net.ChatService;
  * @author husyin
  * @date 2019年3月10日
  */
-@Route(path = RouteUtils.Service_Chat)
+@Route(path = RouteUtils.SERVICE_CHAT)
 public class ChatModuleService implements IChatModuleService {
 
     @Override

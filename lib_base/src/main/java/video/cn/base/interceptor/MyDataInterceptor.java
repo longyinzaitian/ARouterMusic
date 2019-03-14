@@ -37,7 +37,7 @@ public class MyDataInterceptor implements IInterceptor {
 //        postcard.withString("extra", "我是在拦截器中附加的参数");
 //        callback.onContinue(postcard);
             callback.onInterrupt(null);
-            ARouter.getInstance().build(RouteUtils.Me_Login)
+            ARouter.getInstance().build(RouteUtils.ME_LOGIN)
                     .withString("path", postcard.getPath()).navigation();
         } else {
             postcard.withString("extra", "我是在拦截器中附加的参数");

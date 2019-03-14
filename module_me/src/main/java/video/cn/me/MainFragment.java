@@ -24,7 +24,7 @@ import video.cn.base.utils.RouteUtils;
  * @author husyin
  * @date 2019年3月10日
  */
-@Route(path = RouteUtils.Me_Fragment_Main)
+@Route(path = RouteUtils.ME_FRAGMENT_MAIN)
 public class MainFragment extends Fragment implements View.OnClickListener {
 
     /**
@@ -74,7 +74,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             Map<String, List<JavaBean>> map = new HashMap<>();
             map.put("testMap", objList);
 
-            ARouter.getInstance().build(RouteUtils.Me_Inject)
+            ARouter.getInstance().build(RouteUtils.ME_INJECT)
                     .withString("name", "老王")
                     .withInt("age", 18)
                     .withBoolean("boy", true)

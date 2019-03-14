@@ -15,7 +15,7 @@ import video.cn.me.R;
  * @author husyin
  * @date 2019年3月10日
  */
-@Route(path = RouteUtils.Me_Test)
+@Route(path = RouteUtils.ME_TEST)
 public class TestActivity extends AppCompatActivity {
 
     /**

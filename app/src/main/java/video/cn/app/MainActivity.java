@@ -35,8 +35,7 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.tab_recommend,
             R.drawable.tab_user
     };
-    private String[] tab_array;
-    private DemandAdapter mDemandAdapter;
+    private String[] tabArray;
     private ArrayList<Fragment> fragments = new ArrayList<>();
 
     @Override
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        tab_array = getResources().getStringArray(R.array.tab_main);
+        tabArray = getResources().getStringArray(R.array.tab_main);
         fragments.clear();
         fragments.add(FragmentUtils.getHomeFragment());
         fragments.add(FragmentUtils.getChatFragment());
@@ -67,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setViewPagerAdapter() {
-        mDemandAdapter = new DemandAdapter(getSupportFragmentManager());
+        DemandAdapter mDemandAdapter = new DemandAdapter(getSupportFragmentManager());
         mMViewPager.setAdapter(mDemandAdapter);
     }
 
@@ -92,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView tabImage = view.findViewById(R.id.tab_image);
         TextView tabText = view.findViewById(R.id.tab_text);
         tabImage.setImageResource(tabIcons[position]);
-        tabText.setText(tab_array[position]);
+        tabText.setText(tabArray[position]);
         return view;
     }
 

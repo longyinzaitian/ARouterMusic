@@ -3,6 +3,7 @@ package video.cn.base.utils;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Service;
+import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
@@ -44,14 +45,10 @@ import static android.content.Context.INPUT_METHOD_SERVICE;
  * @author husyin
  * @date 2019年3月10日
  */
-public class UIUtils {
+public class UiUtils {
 
     private static Toast toast;
 
-    /**
-     * 静态吐司
-     *
-     */
     public static void showToast(Context context, String text) {
         if (toast == null) {
             toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
@@ -161,29 +158,28 @@ public class UIUtils {
      */
 
     public static Drawable getDrawbleForBitmap(Bitmap bitmap) {
-        Drawable drawable = new BitmapDrawable(getResources(), bitmap);
-        return drawable;
+        return new BitmapDrawable(getResources(), bitmap);
     }
 
-    /**
-     * 把Drawable转化为Bitmap
-     */
-    private static Bitmap bitmap;
 
     public static Bitmap getBitmapForDrawable(Drawable drawable) {
-        BitmapDrawable bd = (BitmapDrawable) drawable;
-        bitmap = bd.getBitmap();
-        return bitmap;
+        if (drawable instanceof  BitmapDrawable) {
+            BitmapDrawable bd = (BitmapDrawable) drawable;
+            return bd.getBitmap();
+        }
+        return null;
     }
 
-    /**
-     * 将drawable转换成可以用来存储的byte[]类型
-     *
-     */
+
     public static byte[] getPictureByte(Drawable drawable) {
         if (drawable == null) {
             return null;
         }
+
+        if (!(drawable instanceof BitmapDrawable)) {
+            return null;
+        }
+
         BitmapDrawable bd = (BitmapDrawable) drawable;
         Bitmap bitmap = bd.getBitmap();
         ByteArrayOutputStream os = new ByteArrayOutputStream();
@@ -197,11 +193,9 @@ public class UIUtils {
      */
     public static Bitmap getBitmapFromByte(byte[] temp) {
         if (temp != null) {
-            Bitmap bitmap = BitmapFactory.decodeByteArray(temp, 0, temp.length);
-            return bitmap;
-        } else {
-            return null;
+            return BitmapFactory.decodeByteArray(temp, 0, temp.length);
         }
+        return null;
     }
 
     /**
@@ -322,7 +316,7 @@ public class UIUtils {
     public static void setSysClipboardText(Context context, String writeMe) {
         ClipboardManager cm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         // 将文本内容放到系统剪贴板里。
-        cm.setText(writeMe);
+        cm.setPrimaryClip(ClipData.newPlainText(null, writeMe));
     }
 
     /**
@@ -366,7 +360,7 @@ public class UIUtils {
      * @param mRecyclerView 当前的RecyclerView
      * @param n             要跳转的位置
      */
-    public static void MoveToPosition(LinearLayoutManager manager, RecyclerView mRecyclerView, int n) {
+    public static void moveToPosition(LinearLayoutManager manager, RecyclerView mRecyclerView, int n) {
         int firstItem = manager.findFirstVisibleItemPosition();
         int lastItem = manager.findLastVisibleItemPosition();
         if (n <= firstItem) {

@@ -16,18 +16,18 @@ import video.cn.base.utils.RouteUtils;
 public class FragmentUtils {
 
     public static Fragment getHomeFragment() {
-        return (Fragment) ARouter.getInstance().build(RouteUtils.Home_Fragment_Main).navigation();
+        return (Fragment) ARouter.getInstance().build(RouteUtils.HOME_FRAGMENT_MAIN).navigation();
     }
 
     public static Fragment getChatFragment() {
-        return (Fragment) ARouter.getInstance().build(RouteUtils.Chat_Fragment_Main).navigation();
+        return (Fragment) ARouter.getInstance().build(RouteUtils.CHAT_FRAGMENT_MAIN).navigation();
     }
 
     public static Fragment getRecomFragment() {
-        return (Fragment) ARouter.getInstance().build(RouteUtils.Recom_Fragment_Main).navigation();
+        return (Fragment) ARouter.getInstance().build(RouteUtils.RECOM_FRAGMENT_MAIN).navigation();
     }
 
     public static Fragment getMeFragment() {
-        return (Fragment) ARouter.getInstance().build(RouteUtils.Me_Fragment_Main).navigation();
+        return (Fragment) ARouter.getInstance().build(RouteUtils.ME_FRAGMENT_MAIN).navigation();
     }
 }

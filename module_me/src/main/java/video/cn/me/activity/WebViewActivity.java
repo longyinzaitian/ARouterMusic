@@ -13,7 +13,7 @@ import video.cn.me.R;
  * @author husyin
  * @date 2019年3月10日
  */
-@Route(path = RouteUtils.Me_WebView)
+@Route(path = RouteUtils.ME_WEB_VIEW)
 public class WebViewActivity extends AppCompatActivity {
 
     private WebView mWebview;
