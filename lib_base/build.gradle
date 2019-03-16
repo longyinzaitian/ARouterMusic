@@ -56,4 +56,8 @@ dependencies {
     api "com.jakewharton:butterknife:${rootProject.ext.butter_knife_v}"
     kapt "com.jakewharton:butterknife-compiler:${rootProject.ext.butter_knife_v}"
 
+    debugApi "com.squareup.leakcanary:leakcanary-android:${rootProject.ext.leakcanary_v}"
+    releaseApi "com.squareup.leakcanary:leakcanary-android-no-op:${rootProject.ext.leakcanary_v}"
+    debugApi "com.squareup.leakcanary:leakcanary-support-fragment:${rootProject.ext.leakcanary_v}"
+
 }

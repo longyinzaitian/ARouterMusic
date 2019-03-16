@@ -50,4 +50,5 @@ ext {
     fast_json_v = '1.2.9'
     butter_knife_v = '9.0.0'
     retrofit_v = '2.5.0'
+    leakcanary_v = '1.6.3'
 }
