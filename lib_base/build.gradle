@@ -50,7 +50,10 @@ dependencies {
     api "org.simple:androideventbus:${rootProject.ext.event_bus_v}"
     api "com.alibaba:fastjson:${rootProject.ext.fast_json_v}"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    api "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofit_v}"
+    api "com.squareup.retrofit2:converter-gson:${rootProject.ext.retrofit_v}"
 
     api "com.jakewharton:butterknife:${rootProject.ext.butter_knife_v}"
     kapt "com.jakewharton:butterknife-compiler:${rootProject.ext.butter_knife_v}"
+
 }

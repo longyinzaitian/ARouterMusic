@@ -49,4 +49,5 @@ ext {
     event_bus_v = '1.0.5.1'
     fast_json_v = '1.2.9'
     butter_knife_v = '9.0.0'
+    retrofit_v = '2.5.0'
 }
