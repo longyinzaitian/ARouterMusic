@@ -1,6 +1,8 @@
 package video.cn.app;
 
+import android.Manifest;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
@@ -8,6 +10,7 @@ import android.widget.ImageView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import video.cn.base.base.BaseActivity;
+import video.cn.base.utils.L;
 import video.cn.base.utils.ThreadCenter;
 
 /**
@@ -30,6 +33,7 @@ public class LaunchActivity extends BaseActivity {
         setContentView(R.layout.activity_launch);
         mUnBinder = ButterKnife.bind(this);
         initView();
+        requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE);
     }
 
     private void initView() {
@@ -39,8 +43,26 @@ public class LaunchActivity extends BaseActivity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
+    protected void onGrantedPermission() {
+        super.onGrantedPermission();
+        runAlphaAnim();
+    }
+
+    @Override
+    protected void onDeniedPermission() {
+        super.onDeniedPermission();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            boolean rationale = shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            L.Companion.i("launch", "rationale:" + rationale);
+            if (!rationale) {
+                // show dialog tip grand permission
+            } else {
+                runAlphaAnim();
+            }
+        }
+    }
+
+    private void runAlphaAnim() {
         ThreadCenter.Companion.getThreadCenter().postRunnable(new Runnable() {
             @Override
             public void run() {
@@ -58,6 +80,5 @@ public class LaunchActivity extends BaseActivity {
                 finish();
             }
         });
-
     }
 }
