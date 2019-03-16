@@ -2,10 +2,12 @@ package video.cn.app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import video.cn.base.base.BaseActivity;
 import video.cn.base.utils.ThreadCenter;
 
 /**
@@ -15,20 +17,22 @@ import video.cn.base.utils.ThreadCenter;
  *
  */
 
-public class LaunchActivity extends AppCompatActivity {
+public class LaunchActivity extends BaseActivity {
 
     private static final int SLEEP_TIME = 2000;
-    private ImageView mSplashRoot;
+
+    @BindView(R.id.splash_root)
+    ImageView mSplashRoot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
+        mUnBinder = ButterKnife.bind(this);
         initView();
     }
 
     private void initView() {
-        mSplashRoot = findViewById(R.id.splash_root);
         AlphaAnimation animation = new AlphaAnimation(0.3f, 1.0f);
         animation.setDuration(1500);
         mSplashRoot.startAnimation(animation);

@@ -30,5 +30,5 @@ dependencies {
     })
     testImplementation 'junit:junit:4.12'
     api "com.android.support:appcompat-v7:${rootProject.ext.support_v}"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }
