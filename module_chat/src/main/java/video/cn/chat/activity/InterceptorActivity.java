@@ -1,11 +1,11 @@
 package video.cn.chat.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
+import video.cn.base.base.BaseActivity;
 import video.cn.base.utils.RouteUtils;
 import video.cn.chat.R;
 
@@ -14,7 +14,7 @@ import video.cn.chat.R;
  * @date 2019年3月10日
  */
 @Route(path = RouteUtils.CHAT_INTERCEPTOR)
-public class InterceptorActivity extends AppCompatActivity {
+public class InterceptorActivity extends BaseActivity {
 
     /**
      * eventBus数据接收页面

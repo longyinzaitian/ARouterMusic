@@ -2,7 +2,6 @@ package video.cn.me;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import video.cn.base.base.BaseFragment;
 import video.cn.base.bean.EventBusBean;
 import video.cn.base.bean.JavaBean;
 import video.cn.base.utils.RouteUtils;
@@ -25,7 +25,7 @@ import video.cn.base.utils.RouteUtils;
  * @date 2019年3月10日
  */
 @Route(path = RouteUtils.ME_FRAGMENT_MAIN)
-public class MainFragment extends Fragment implements View.OnClickListener {
+public class MainFragment extends BaseFragment implements View.OnClickListener {
 
     /**
      * 依赖注入

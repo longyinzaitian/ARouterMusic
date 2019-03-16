@@ -1,13 +1,13 @@
 package video.cn.me.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 
+import video.cn.base.base.BaseActivity;
 import video.cn.base.utils.RouteUtils;
 import video.cn.me.R;
 
@@ -16,7 +16,7 @@ import video.cn.me.R;
  * @date 2019年3月10日
  */
 @Route(path = RouteUtils.ME_TEST)
-public class TestActivity extends AppCompatActivity {
+public class TestActivity extends BaseActivity {
 
     /**
      * 数据接收页面

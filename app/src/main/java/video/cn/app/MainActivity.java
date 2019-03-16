@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,6 +14,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import video.cn.app.utils.FragmentUtils;
+import video.cn.base.base.BaseActivity;
 
 /**
  *
@@ -22,7 +22,7 @@ import video.cn.app.utils.FragmentUtils;
  * @date 2019年3月10日
  *
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private ViewPager mMViewPager;
     private TabLayout mToolbarTab;

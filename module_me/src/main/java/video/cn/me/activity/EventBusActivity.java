@@ -1,7 +1,6 @@
 package video.cn.me.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,6 +12,7 @@ import org.simple.eventbus.EventBus;
 
 import java.util.Locale;
 
+import video.cn.base.base.BaseActivity;
 import video.cn.base.bean.EventBusBean;
 import video.cn.base.data.EvenBusTag;
 import video.cn.base.utils.RouteUtils;
@@ -23,7 +23,7 @@ import video.cn.me.R;
  * @date 2019年3月10日
  */
 @Route(path = RouteUtils.ME_EVENT_BUS)
-public class EventBusActivity extends AppCompatActivity implements View.OnClickListener {
+public class EventBusActivity extends BaseActivity implements View.OnClickListener {
 
     /**
      * eventBus数据接收页面

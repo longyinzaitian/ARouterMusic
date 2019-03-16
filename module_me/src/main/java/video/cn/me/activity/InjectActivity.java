@@ -1,7 +1,6 @@
 package video.cn.me.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
@@ -11,6 +10,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import java.util.List;
 import java.util.Map;
 
+import video.cn.base.base.BaseActivity;
 import video.cn.base.bean.EventBusBean;
 import video.cn.base.bean.JavaBean;
 import video.cn.base.utils.RouteUtils;
@@ -23,7 +23,7 @@ import video.cn.me.R;
  * @date 2019年3月10日
  */
 @Route(path = RouteUtils.ME_INJECT)
-public class InjectActivity extends AppCompatActivity {
+public class InjectActivity extends BaseActivity {
     @Autowired
     String name = "hahahha";
 

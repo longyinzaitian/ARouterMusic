@@ -2,7 +2,6 @@ package video.cn.me.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +15,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 
 import java.util.Locale;
 
+import video.cn.base.base.BaseActivity;
 import video.cn.base.utils.RouteUtils;
 import video.cn.base.utils.UiUtils;
 import video.cn.me.R;
@@ -25,7 +25,7 @@ import video.cn.me.R;
  * @date 2019年3月10日
  */
 @Route(path = RouteUtils.ME_LOGIN)
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
     /**
      * 跳转ForResult

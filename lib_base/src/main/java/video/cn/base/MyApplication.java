@@ -1,9 +1,12 @@
 package video.cn.base;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 
 import video.cn.base.utils.UiUtils;
 
@@ -17,15 +20,17 @@ public class MyApplication extends Application {
      * 上下文
      */
     private static MyApplication instance;
+    private RefWatcher mRefWatcher;
 
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
         initRouter(this);
+        initLeakCanary();
     }
 
-    public static Context getInstance() {
+    public static MyApplication getInstance() {
         return instance;
     }
 
@@ -40,7 +45,15 @@ public class MyApplication extends Application {
         }
         // 尽可能早，推荐在Application中初始化
         ARouter.init(mApplication);
+    }
 
+    private void initLeakCanary() {
+        mRefWatcher = LeakCanary.install(this);
+    }
 
+    public void watchObj(Object obj) {
+        if (mRefWatcher != null) {
+            mRefWatcher.watch(obj);
+        }
     }
 }

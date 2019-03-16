@@ -3,6 +3,7 @@ package video.cn.base.base;
 import android.support.v7.app.AppCompatActivity;
 
 import butterknife.Unbinder;
+import video.cn.base.MyApplication;
 
 /**
  * @author husy
@@ -17,5 +18,6 @@ public class BaseActivity extends AppCompatActivity {
         if (mUnBinder != null) {
             mUnBinder.unbind();
         }
+        MyApplication.getInstance().watchObj(this);
     }
 }

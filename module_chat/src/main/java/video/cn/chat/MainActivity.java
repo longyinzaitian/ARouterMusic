@@ -2,13 +2,14 @@ package video.cn.chat;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
+
+import video.cn.base.base.BaseActivity;
 
 /**
  * @author husyin
  * @date 2019年3月10日
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
