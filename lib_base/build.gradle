@@ -47,7 +47,7 @@ dependencies {
     api "com.android.support:design:${rootProject.ext.support_v}"
     api "com.alibaba:arouter-api:${rootProject.ext.arouter_api_v}"
     kapt "com.alibaba:arouter-compiler:${rootProject.ext.arouter_compile_v}"
-    api "org.simple:androideventbus:${rootProject.ext.event_bus_v}"
+    api "org.simple:androideventbus:${rootProject.ext.android_event_bus_v}"
     api "com.alibaba:fastjson:${rootProject.ext.fast_json_v}"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     api "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofit_v}"
@@ -63,4 +63,5 @@ dependencies {
     api "io.reactivex.rxjava2:rxjava:${rootProject.ext.rxjava_v}"
     api "io.reactivex.rxjava2:rxandroid:${rootProject.ext.rxandroid_v}"
 
+    api "org.greenrobot:eventbus:${rootProject.ext.eventbus_v}"
 }
