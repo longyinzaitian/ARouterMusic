@@ -26,6 +26,7 @@ allprojects {
         maven {
             url "http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories/"
         }
+        maven { url 'https://oss.jfrog.org/libs-snapshot' }
     }
 }
 
@@ -51,4 +52,6 @@ ext {
     butter_knife_v = '9.0.0'
     retrofit_v = '2.5.0'
     leakcanary_v = '1.6.3'
+    rxjava_v = '2.2.7'
+    rxandroid_v = '2.1.1'
 }

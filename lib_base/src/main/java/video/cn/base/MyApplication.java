@@ -1,8 +1,6 @@
 package video.cn.base;
 
-import android.app.Activity;
 import android.app.Application;
-import android.content.Context;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.squareup.leakcanary.LeakCanary;
@@ -27,7 +25,7 @@ public class MyApplication extends Application {
         super.onCreate();
         instance = this;
         initRouter(this);
-        initLeakCanary();
+//        initLeakCanary();
     }
 
     public static MyApplication getInstance() {

@@ -60,4 +60,7 @@ dependencies {
     releaseApi "com.squareup.leakcanary:leakcanary-android-no-op:${rootProject.ext.leakcanary_v}"
     debugApi "com.squareup.leakcanary:leakcanary-support-fragment:${rootProject.ext.leakcanary_v}"
 
+    api "io.reactivex.rxjava2:rxjava:${rootProject.ext.rxjava_v}"
+    api "io.reactivex.rxjava2:rxandroid:${rootProject.ext.rxandroid_v}"
+
 }
