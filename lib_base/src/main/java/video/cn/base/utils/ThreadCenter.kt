@@ -38,4 +38,8 @@ class ThreadCenter private constructor() {
     fun postRunnable(runnable: Runnable) {
         threadPoolExecutor!!.execute(runnable)
     }
+
+    fun stop() {
+        threadPoolExecutor!!.shutdownNow()
+    }
 }
