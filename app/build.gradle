@@ -62,7 +62,7 @@ android {
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     api "com.android.support.constraint:constraint-layout:${rootProject.ext.constraint_v}"
@@ -79,10 +79,10 @@ dependencies {
     if (isNeedMeModule.toBoolean()) {
         api project(':module_me')
     }
-    api "com.android.support:appcompat-v7:${rootProject.ext.support_v}"
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.support_v}"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     // base 添加  此处仍然需要添加。否则 错误
     kapt "com.jakewharton:butterknife-compiler:${rootProject.ext.butter_knife_v}"
 
-    api 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
 }

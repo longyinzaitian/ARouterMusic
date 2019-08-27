@@ -48,7 +48,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     api project(':lib_base')
     api project(':lib_icon')
-    api "com.android.support:appcompat-v7:${rootProject.ext.support_v}"
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.support_v}"
     kapt "com.alibaba:arouter-compiler:${rootProject.ext.arouter_compile_v}"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }

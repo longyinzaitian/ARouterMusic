@@ -42,7 +42,7 @@ dependencies {
     })
     api "com.android.support.constraint:constraint-layout:${rootProject.ext.constraint_v}"
     testImplementation 'junit:junit:4.12'
-    api "com.android.support:appcompat-v7:${rootProject.ext.support_v}"
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.support_v}"
     kapt "com.alibaba:arouter-compiler:${rootProject.ext.arouter_compile_v}"
     api project(':lib_base')
     api project(':lib_icon')
