@@ -3,8 +3,11 @@ package video.cn.app.ui.launch;
 import android.Manifest;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.support.annotation.Nullable;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
@@ -17,8 +20,8 @@ import video.cn.app.MainActivity;
 import video.cn.app.R;
 import video.cn.base.base.BaseActivity;
 import video.cn.base.utils.GlideUtil;
-import video.cn.base.utils.LogUtil;
 import video.cn.base.utils.ThreadCenter;
+import video.cn.base.utils.UiUtils;
 
 /**
  *
@@ -30,10 +33,11 @@ import video.cn.base.utils.ThreadCenter;
 public class LaunchActivity extends BaseActivity implements LaunchContract.LaunchView {
 
     private static final int SLEEP_TIME = 6000;
+    private static final int REQUEST_PERMISSION_SETTING = 99;
     @BindView(R.id.splash_root)
     ImageView mSplashRoot;
 
-    private LaunchPresenter mLaunchPresenter;
+    private LaunchContract.LaunchPresenter mLaunchPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,14 +61,14 @@ public class LaunchActivity extends BaseActivity implements LaunchContract.Launc
         super.onDeniedPermission();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             boolean rationale = shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-            LogUtil.Companion.i("launch", "rationale:" + rationale);
             if (!rationale) {
-                // show dialog tip grand permission
+                UiUtils.showToast("请打开读写权限");
+                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                Uri uri = Uri.fromParts("package", getPackageName(), null);
+                intent.setData(uri);
+                startActivityForResult(intent, REQUEST_PERMISSION_SETTING);
             } else {
-//                runAlphaAnim();
-                if (mLaunchPresenter != null) {
-                    mLaunchPresenter.getImage();
-                }
+                finish();
             }
         }
     }
@@ -122,5 +126,13 @@ public class LaunchActivity extends BaseActivity implements LaunchContract.Launc
             startActivity(new Intent(LaunchActivity.this, MainActivity.class));
             finish();
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_PERMISSION_SETTING) {
+            requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE);
+        }
     }
 }

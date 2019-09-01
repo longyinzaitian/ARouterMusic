@@ -6,8 +6,8 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import video.cn.app.net.LaunchImageRequest;
-import video.cn.app.net.LaunchResponse;
+import com.husy.network.bingimage.LaunchImageRequest;
+import com.husy.network.bingimage.LaunchResponse;
 import video.cn.base.base.BasePresenter;
 import video.cn.base.utils.LogUtil;
 
@@ -15,12 +15,13 @@ import video.cn.base.utils.LogUtil;
  * @author husy
  * @date 2019/8/31
  */
-public class LaunchPresenter extends BasePresenter<LaunchContract.LaunchView> {
+public class LaunchPresenter extends BasePresenter<LaunchContract.LaunchView> implements LaunchContract.LaunchPresenter {
 
     public LaunchPresenter(LaunchContract.LaunchView iView) {
         super(iView);
     }
 
+    @Override
     public void getImage() {
         RetrofitClient.getInstance().create(LaunchImageRequest.class)
             .getImage(1)

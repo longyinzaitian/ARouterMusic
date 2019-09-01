@@ -1,4 +1,4 @@
-package video.cn.app.net;
+package com.husy.network.bingimage;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;

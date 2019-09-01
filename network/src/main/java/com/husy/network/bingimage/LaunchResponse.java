@@ -1,4 +1,4 @@
-package video.cn.app.net;
+package com.husy.network.bingimage;
 
 import java.util.Arrays;
 import java.util.List;

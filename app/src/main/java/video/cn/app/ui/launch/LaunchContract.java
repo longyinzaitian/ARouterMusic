@@ -16,5 +16,11 @@ public interface LaunchContract {
         void showFlash(String url);
     }
 
+    interface LaunchPresenter {
+        /**
+         * 获取图片
+         */
+        void getImage();
+    }
 
 }
