@@ -6,6 +6,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
+import video.cn.base.utils.ActLifeListener;
 import video.cn.base.utils.UiUtils;
 
 /**
@@ -13,26 +14,25 @@ import video.cn.base.utils.UiUtils;
  * @date 2019年3月10日
  */
 
-public class MyApplication extends Application {
-    /**
-     * 上下文
-     */
-    private static MyApplication instance;
+public class BaseApplication extends Application {
+
+    private static BaseApplication instance;
     private RefWatcher mRefWatcher;
 
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
+        registerActivityLifecycleCallbacks(ActLifeListener.getInstance());
         initRouter(this);
 //        initLeakCanary();
     }
 
-    public static MyApplication getInstance() {
+    public static BaseApplication getInstance() {
         return instance;
     }
 
-    private void initRouter(MyApplication mApplication) {
+    private void initRouter(BaseApplication mApplication) {
         // 这两行必须写在init之前，否则这些配置在init过程中将无效
         if (UiUtils.isApkInDebug(instance)) {
             //打印日志

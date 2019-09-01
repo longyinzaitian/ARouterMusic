@@ -101,7 +101,9 @@
 -keep public class * extends android.support.v4.**
 -keep public class * extends android.support.v7.**
 -keep public class * extends android.support.annotation.**
-
+-keep public class *extends java.lang.annotation.Annotation {
+  *;
+}
 # 保留R下面的资源
 -keep class **.R$* {*;}
 
@@ -202,3 +204,13 @@
 
 # 如果使用了 单类注入，即不定义接口实现 IProvider，需添加下面规则，保护实现
 -keep class * implements com.alibaba.android.arouter.facade.template.IProvider
+
+##############Glide##############################
+-keep public class * implements com.bumptech.glide.module.GlideModule
+-keep public class * extends com.bumptech.glide.module.AppGlideModule
+-keep public enum com.bumptech.glide.load.ImageHeaderParser$** {
+  **[] $VALUES;
+  public *;
+}
+-dontwarn com.bumptech.glide.load.resource.bitmap.VideoDecoder
+-keepresourcexmlelements manifest/application/meta-data@value=GlideModule

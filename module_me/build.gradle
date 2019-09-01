@@ -38,14 +38,10 @@ android {
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    api "com.android.support.constraint:constraint-layout:${rootProject.ext.constraint_v}"
-    testImplementation 'junit:junit:4.12'
+
     api project(':network')
     api project(':lib_icon')
-    implementation "com.android.support:appcompat-v7:${rootProject.ext.support_v}"
+
     kapt "com.alibaba:arouter-compiler:${rootProject.ext.arouter_compile_v}"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }

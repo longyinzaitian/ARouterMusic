@@ -8,7 +8,7 @@ import android.util.Log
  * @author husy
  * @date 2019/3/17
  */
-class L {
+class LogUtil {
     companion object {
         fun i(tag: String, info: String) {
             Log.i(tag, info)

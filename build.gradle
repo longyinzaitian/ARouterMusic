@@ -61,4 +61,5 @@ ext {
     rxjava_v = '2.2.7'
     rxandroid_v = '2.1.1'
     eventbus_v = '3.1.1'
+    glide_v = '4.9.0'
 }

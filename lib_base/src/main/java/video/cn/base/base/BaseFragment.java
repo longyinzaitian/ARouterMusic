@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import video.cn.base.MyApplication;
+import video.cn.base.BaseApplication;
 
 /**
  * @author husy
@@ -44,6 +44,6 @@ public class BaseFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        MyApplication.getInstance().watchObj(this);
+        BaseApplication.getInstance().watchObj(this);
     }
 }

@@ -36,7 +36,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.List;
 
-import video.cn.base.MyApplication;
+import video.cn.base.BaseApplication;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 
@@ -107,7 +107,7 @@ public class UiUtils {
      *
      */
     public static Context getContext() {
-        return MyApplication.getInstance();
+        return BaseApplication.getInstance();
     }
 
     /**
