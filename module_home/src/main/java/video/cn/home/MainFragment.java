@@ -37,7 +37,7 @@ import video.cn.base.utils.UiUtils;
  * @author husyin
  * @date 2019年3月10日
  */
-@Route(path = RouteUtils.HOME_FRAGMENT_MAIN)
+//@Route(path = RouteUtils.HOME_FRAGMENT_MAIN)
 public class MainFragment extends BaseFragment implements View.OnClickListener {
 
     /**

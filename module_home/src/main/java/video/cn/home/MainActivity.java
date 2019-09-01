@@ -19,7 +19,7 @@ public class MainActivity extends BaseActivity {
     }
     private void initView() {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fl_main, new MainFragment())
+        fragmentManager.beginTransaction().replace(R.id.fl_main, new HomeFragment())
                 .commitAllowingStateLoss();
     }
 }

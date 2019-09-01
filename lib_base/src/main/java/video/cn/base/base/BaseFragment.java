@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.Unbinder;
 import video.cn.base.BaseApplication;
 
 /**
@@ -15,6 +16,9 @@ import video.cn.base.BaseApplication;
  * @date 2019/3/17
  */
 public class BaseFragment extends Fragment {
+
+    protected Unbinder mUnbinder;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +48,9 @@ public class BaseFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        if (mUnbinder != null) {
+            mUnbinder.unbind();
+        }
         BaseApplication.getInstance().watchObj(this);
     }
 }
