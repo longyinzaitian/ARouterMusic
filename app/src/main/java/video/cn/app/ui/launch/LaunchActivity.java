@@ -45,7 +45,8 @@ public class LaunchActivity extends BaseActivity implements LaunchContract.Launc
         setContentView(R.layout.activity_launch);
         mUnBinder = ButterKnife.bind(this);
         mLaunchPresenter = new LaunchPresenter(this);
-        requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE);
+        requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE);
     }
 
     @Override
@@ -61,8 +62,9 @@ public class LaunchActivity extends BaseActivity implements LaunchContract.Launc
         super.onDeniedPermission();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             boolean rationale = shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-            if (!rationale) {
-                UiUtils.showToast("请打开读写权限");
+            boolean rationalePhone = shouldShowRequestPermissionRationale(Manifest.permission.READ_PHONE_STATE);
+            if (!rationale || !rationalePhone) {
+                UiUtils.showToast("请打开读写权限和电话权限");
                 Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
                 Uri uri = Uri.fromParts("package", getPackageName(), null);
                 intent.setData(uri);
@@ -132,7 +134,16 @@ public class LaunchActivity extends BaseActivity implements LaunchContract.Launc
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_PERMISSION_SETTING) {
-            requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE);
+            requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mLaunchPresenter != null) {
+            mLaunchPresenter.destroy();
         }
     }
 }

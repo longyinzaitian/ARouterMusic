@@ -1,5 +1,6 @@
 package video.cn.app.ui.launch;
 
+import video.cn.base.base.IPresenter;
 import video.cn.base.base.IView;
 
 /**
@@ -16,7 +17,7 @@ public interface LaunchContract {
         void showFlash(String url);
     }
 
-    interface LaunchPresenter {
+    interface LaunchPresenter extends IPresenter {
         /**
          * 获取图片
          */

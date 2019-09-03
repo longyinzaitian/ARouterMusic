@@ -50,12 +50,4 @@ public class RetrofitClient {
         return mRetrofit.create(clazz);
     }
 
-    public void enqueue() {
-
-    }
-
-    public Retrofit getRetrofit() {
-        return mRetrofit;
-    }
-
 }

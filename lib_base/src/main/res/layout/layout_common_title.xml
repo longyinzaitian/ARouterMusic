@@ -9,4 +9,6 @@
     tools:title="测试"
     app:titleTextColor="@android:color/white"
     android:layout_centerVertical="true"
+    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     />

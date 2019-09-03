@@ -83,4 +83,6 @@ dependencies {
     annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.ext.glide_v}"
     kapt "com.github.bumptech.glide:compiler:${rootProject.ext.glide_v}"
 
+    api "com.android.support:multidex:${rootProject.ext.multidex_v}"
+
 }

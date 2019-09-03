@@ -3,6 +3,7 @@ package video.cn.base.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.StringRes;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -44,6 +45,9 @@ public class CommonTitle extends RelativeLayout {
     }
 
     private void initView(Context context, AttributeSet attrs) {
+        if (context instanceof AppCompatActivity) {
+            ((AppCompatActivity)context).setSupportActionBar(mToolbar);
+        }
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.CommonTitle);
         String title = array.getString(R.styleable.CommonTitle_title);
         setText(title);
@@ -59,7 +63,7 @@ public class CommonTitle extends RelativeLayout {
     }
 
     private void setToolbar() {
-        
+
     }
 
 }

@@ -14,5 +14,5 @@ public interface HomeRequest {
      * @return json root bean
      */
     @GET("http://baobab.kaiyanapp.com/api/v5/index/tab/discovery")
-    Observable<JsonRootBean> getHomeInfo();
+    Observable getHomeInfo();
 }

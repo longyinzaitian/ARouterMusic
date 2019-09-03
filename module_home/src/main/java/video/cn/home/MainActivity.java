@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 
 import video.cn.base.base.BaseActivity;
+import video.cn.home.fragment.home.HomeFragment;
 
 /**
  * @author husyin

@@ -1,15 +1,13 @@
 package video.cn.app.ui.launch;
 
+import com.husy.network.CallListener;
 import com.husy.network.RetrofitClient;
-
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 import com.husy.network.bingimage.LaunchImageRequest;
 import com.husy.network.bingimage.LaunchResponse;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import video.cn.base.base.BasePresenter;
-import video.cn.base.utils.LogUtil;
 
 /**
  * @author husy
@@ -27,15 +25,9 @@ public class LaunchPresenter extends BasePresenter<LaunchContract.LaunchView> im
             .getImage(1)
             .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(new Observer<LaunchResponse>() {
+            .subscribe(new CallListener<LaunchResponse>() {
                 @Override
-                public void onSubscribe(Disposable d) {
-
-                }
-
-                @Override
-                public void onNext(LaunchResponse launchResponse) {
-                    LogUtil.Companion.i("response:", "" + launchResponse.toString());
+                public void onResponse(LaunchResponse launchResponse) {
                     if (iView == null || launchResponse.getImages() == null
                             || launchResponse.getImages().isEmpty()) {
                         return;
@@ -45,12 +37,7 @@ public class LaunchPresenter extends BasePresenter<LaunchContract.LaunchView> im
                 }
 
                 @Override
-                public void onError(Throwable e) {
-                    e.printStackTrace();
-                }
-
-                @Override
-                public void onComplete() {
+                public void onFail(Throwable e) {
 
                 }
             });

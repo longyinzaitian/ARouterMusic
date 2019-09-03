@@ -1,6 +1,8 @@
 package video.cn.base;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.squareup.leakcanary.LeakCanary;
@@ -18,6 +20,12 @@ public class BaseApplication extends Application {
 
     private static BaseApplication instance;
     private RefWatcher mRefWatcher;
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(base);
+    }
 
     @Override
     public void onCreate() {
