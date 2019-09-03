@@ -1,0 +1,29 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compile_sdk_v
+    buildToolsVersion rootProject.ext.build_tools_v
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.min_sdk_v
+        targetSdkVersion rootProject.ext.target_sdk_v
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    //    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation files('libs/androidcommon-toolbox.jar')
+    implementation "com.google.code.gson:gson:2.8.2"
+    implementation files('libs/sohu_net.jar')
+    api files('libs/SohuPlayer_V5.6.0__2017_07_04_16_16_release.jar')
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.support_v}"
+    implementation "com.android.support:support-v4:${rootProject.ext.support_v}"
+}

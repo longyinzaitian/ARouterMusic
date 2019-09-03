@@ -42,23 +42,26 @@ dependencies {
     })
     testApi 'junit:junit:4.12'
     androidTestApi 'com.android.support.test:runner:1.0.2'
-
     implementation "com.android.support.constraint:constraint-layout:${rootProject.ext.constraint_v}"
-
     api "com.android.support:appcompat-v7:${rootProject.ext.support_v}"
     api "com.android.support:support-v4:${rootProject.ext.support_v}"
     api "com.android.support:support-media-compat:${rootProject.ext.support_v}"
     api "com.android.support:design:${rootProject.ext.support_v}"
+
     // kotlin
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
     // a router
     api "com.alibaba:arouter-api:${rootProject.ext.arouter_api_v}"
     kapt "com.alibaba:arouter-compiler:${rootProject.ext.arouter_compile_v}"
+
     // fast json
     api "com.alibaba:fastjson:${rootProject.ext.fast_json_v}"
+
     // retrofit
     api "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofit_v}"
     api "com.squareup.retrofit2:converter-gson:${rootProject.ext.retrofit_v}"
+
     // butter knife
     api "com.jakewharton:butterknife:${rootProject.ext.butter_knife_v}"
     kapt "com.jakewharton:butterknife-compiler:${rootProject.ext.butter_knife_v}"
@@ -71,18 +74,21 @@ dependencies {
     // rxjava
     api "io.reactivex.rxjava2:rxjava:${rootProject.ext.rxjava_v}"
     api "io.reactivex.rxjava2:rxandroid:${rootProject.ext.rxandroid_v}"
-    api "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+
     //android event bus
     api "org.simple:androideventbus:${rootProject.ext.android_event_bus_v}"
+
     // event bus
     api "org.greenrobot:eventbus:${rootProject.ext.eventbus_v}"
+
     //glide
-    api ("com.github.bumptech.glide:glide:${rootProject.ext.glide_v}"){
+    api("com.github.bumptech.glide:glide:${rootProject.ext.glide_v}") {
         exclude group: "com.android.support"
     }
     annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.ext.glide_v}"
     kapt "com.github.bumptech.glide:compiler:${rootProject.ext.glide_v}"
-
     api "com.android.support:multidex:${rootProject.ext.multidex_v}"
 
+    api project(':ui_plugin')
 }
