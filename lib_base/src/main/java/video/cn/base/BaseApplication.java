@@ -5,7 +5,6 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.sohuvideo.api.SohuPlayerSDK;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -35,7 +34,6 @@ public class BaseApplication extends Application {
         registerActivityLifecycleCallbacks(ActLifeListener.getInstance());
         initRouter(this);
 //        initLeakCanary();
-        SohuPlayerSDK.init(this);
     }
 
     public static BaseApplication getInstance() {
@@ -67,7 +65,6 @@ public class BaseApplication extends Application {
 
     @Override
     public void onTerminate() {
-        SohuPlayerSDK.close();
         super.onTerminate();
     }
 }
