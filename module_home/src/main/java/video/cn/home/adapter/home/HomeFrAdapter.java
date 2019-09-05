@@ -2,31 +2,48 @@ package video.cn.home.adapter.home;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.view.ViewGroup;
+
+import com.husy.network.model.ItemList;
+
+import java.util.List;
 
 /**
  * @author husy
  * @date 2019/9/2
  *
  */
-public class HomeFrAdapter extends RecyclerView.Adapter<HomeFrAdapter.ViewHolder> {
+public class HomeFrAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+    private static final String BANNER_TYPE = "banner2";
+    private static final String VIDEO = "video";
+
+    private static final int TYPE_BANNER = 1;
+    private static final int TYPE_VIDEO = 2;
+
+    private List<ItemList> itemList;
 
     @NonNull
     @Override
-    public HomeFrAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
         return null;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HomeFrAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
 
     }
 
     @Override
     public int getItemViewType(int position) {
-        return 1;
+        ItemList itemList = this.itemList.get(position);
+        if (itemList.type.equals(BANNER_TYPE)) {
+            return TYPE_BANNER;
+        } else if (itemList.type.equals(VIDEO)) {
+            return TYPE_VIDEO;
+        }
+        return -1;
     }
 
     @Override
@@ -36,16 +53,14 @@ public class HomeFrAdapter extends RecyclerView.Adapter<HomeFrAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return 0;
+        return itemList == null ? 0 : itemList.size();
     }
 
-    public void setData() {
+    public void setData(List<ItemList> itemList) {
+        this.itemList = itemList;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-        }
+    public void addData(List<ItemList> itemList) {
+        this.itemList.addAll(itemList);
     }
 }

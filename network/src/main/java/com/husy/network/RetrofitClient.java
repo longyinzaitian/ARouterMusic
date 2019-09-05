@@ -21,14 +21,12 @@ public class RetrofitClient {
 
     private RetrofitClient() {
         mRetrofit = new Retrofit.Builder()
-                .baseUrl("https://api.github.com/")
+                .baseUrl("http://baobab.kaiyanapp.com/api/")
                 .client(getOKHttpClient())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
-
-
 
     private OkHttpClient getOKHttpClient() {
         return new OkHttpClient.Builder()

@@ -2,7 +2,6 @@ package com.sohuvideo.ui_plugin.fragment;
 
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,19 +9,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.sohu.lib.net.parse.CommonDataParser;
 import com.sohu.lib.net.request.DataRequest;
 import com.sohu.lib.net.request.listener.DefaultDataResponse;
 import com.sohu.lib.net.util.ErrorType;
+import com.sohuvideo.ui_plugin.R;
 import com.sohuvideo.ui_plugin.api.StatisticConstants;
 import com.sohuvideo.ui_plugin.control.ResponseDataWrapperSet;
 import com.sohuvideo.ui_plugin.manager.FragmentSwitchManager;
 import com.sohuvideo.ui_plugin.manager.NetRequestManager;
 import com.sohuvideo.ui_plugin.model.Channel;
 import com.sohuvideo.ui_plugin.net.URLFactory;
-import com.sohuvideo.ui_plugin.R;
 import com.sohuvideo.ui_plugin.utils.LogManager;
 import com.sohuvideo.ui_plugin.view.LazyViewPager;
 import com.sohuvideo.ui_plugin.view.indicator.TabPageIndicator;
