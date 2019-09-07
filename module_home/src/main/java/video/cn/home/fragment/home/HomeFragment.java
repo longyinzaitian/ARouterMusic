@@ -10,10 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.husy.network.model.ItemList;
 
+import java.util.List;
+
+import video.cn.base.base.BaseAdapter;
 import video.cn.base.base.BaseFragment;
+import video.cn.base.base.AbstractCustomRecyclerScrollListener;
 import video.cn.base.utils.RouteUtils;
-import video.cn.base.widget.CommonTitle;
 import video.cn.home.R;
 import video.cn.home.adapter.home.HomeFrAdapter;
 
@@ -24,7 +28,6 @@ import video.cn.home.adapter.home.HomeFrAdapter;
 @Route(path = RouteUtils.HOME_FRAGMENT_MAIN)
 public class HomeFragment extends BaseFragment implements HomeContract.MainView {
 
-    private CommonTitle mCommonTitle;
     private RecyclerView mRecyclerView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private HomeContract.MainPresenter mHomePresenter;
@@ -45,7 +48,6 @@ public class HomeFragment extends BaseFragment implements HomeContract.MainView 
     }
 
     private void initView(@NonNull View view) {
-        mCommonTitle = view.findViewById(R.id.home_common_title);
         mRecyclerView = view.findViewById(R.id.home_recycler);
         mSwipeRefreshLayout = view.findViewById(R.id.home_swipe_refresh);
 
@@ -58,8 +60,33 @@ public class HomeFragment extends BaseFragment implements HomeContract.MainView 
             }
         });
 
-        mHomeFrAdapter = new HomeFrAdapter();
+        mHomeFrAdapter = new HomeFrAdapter(getActivity());
         mRecyclerView.setAdapter(mHomeFrAdapter);
+
+        mHomeFrAdapter.setListListener(new BaseAdapter.ListListener<ItemList>() {
+            @Override
+            public void onClickLoadMore() {
+                loadMore();
+            }
+
+            @Override
+            public void onItemClick(ItemList itemList) {
+
+            }
+        });
+
+        mRecyclerView.setOnScrollListener(new AbstractCustomRecyclerScrollListener() {
+            @Override
+            public void onLoadMore() {
+                HomeFragment.this.loadMore();
+            }
+        });
+    }
+
+    private void loadMore() {
+        if (mHomePresenter != null) {
+            mHomePresenter.getHomeInfoMore();
+        }
     }
 
     private void initData() {
@@ -68,7 +95,13 @@ public class HomeFragment extends BaseFragment implements HomeContract.MainView 
     }
 
     @Override
-    public void setData() {
+    public void setData(List<ItemList> itemLists) {
         mSwipeRefreshLayout.setRefreshing(false);
+        mHomeFrAdapter.setData(itemLists);
+    }
+
+    @Override
+    public void addData(List<ItemList> itemLists) {
+        mHomeFrAdapter.addData(itemLists);
     }
 }

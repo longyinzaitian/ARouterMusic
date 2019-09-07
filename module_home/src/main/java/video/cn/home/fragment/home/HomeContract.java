@@ -1,5 +1,9 @@
 package video.cn.home.fragment.home;
 
+import com.husy.network.model.ItemList;
+
+import java.util.List;
+
 import video.cn.base.base.IPresenter;
 import video.cn.base.base.IView;
 
@@ -13,8 +17,15 @@ public interface HomeContract {
 
         /**
          * set home data
+         * @param itemLists list
          */
-        void setData();
+        void setData(List<ItemList> itemLists);
+
+        /**
+         * add home data
+         * @param itemLists list
+         */
+        void addData(List<ItemList> itemLists);
     }
 
     interface MainPresenter extends IPresenter {
@@ -22,5 +33,10 @@ public interface HomeContract {
          * get home info
          */
         void getHomeInfo();
+
+        /**
+         * load more
+         */
+        void getHomeInfoMore();
     }
 }

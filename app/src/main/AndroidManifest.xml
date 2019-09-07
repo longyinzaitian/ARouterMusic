@@ -14,7 +14,6 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
 
-
     <application
         android:name="com.sohuvideo.ui_plugin.PluginApplication"
         android:allowBackup="true"
@@ -25,7 +24,10 @@
         tools:replace="android:icon,android:appComponentFactory,android:name"
         android:theme="@style/AppTheme">
 
-        <activity android:name="video.cn.app.MainActivity" />
+        <activity android:name="video.cn.app.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            />
 
         <activity android:name="video.cn.app.ui.launch.LaunchActivity"
             android:theme="@style/FullScreenTheme"

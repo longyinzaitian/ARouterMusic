@@ -58,6 +58,26 @@ public class Data implements Parcelable {
     public Data() {
     }
 
+    @Override
+    public String toString() {
+        return "Data{" +
+                "dataType='" + dataType + '\'' +
+                ", id=" + id +
+                ", title='" + title + '\'' +
+                ", text='" + text + '\'' +
+                ", description='" + description + '\'' +
+                ", image='" + image + '\'' +
+                ", actionUrl='" + actionUrl + '\'' +
+                ", cover=" + cover +
+                ", category='" + category + '\'' +
+                ", author=" + author +
+                ", playUrl='" + playUrl + '\'' +
+                ", duration=" + duration +
+                ", header=" + header +
+                ", itemList=" + itemList +
+                '}';
+    }
+
     protected Data(Parcel in) {
         this.dataType = in.readString();
         this.id = in.readInt();

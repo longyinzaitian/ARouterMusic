@@ -19,6 +19,15 @@ public class Cover implements Parcelable {
     }
 
     @Override
+    public String toString() {
+        return "Cover{" +
+                "feed='" + feed + '\'' +
+                ", detail='" + detail + '\'' +
+                ", blurred='" + blurred + '\'' +
+                '}';
+    }
+
+    @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.feed);
         dest.writeString(this.detail);

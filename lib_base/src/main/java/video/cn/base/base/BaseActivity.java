@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import butterknife.Unbinder;
+import cn.jzvd.Jzvd;
 import video.cn.base.BaseApplication;
 import video.cn.base.utils.PermissionReq;
 
@@ -55,6 +56,25 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public synchronized ComponentName startForegroundServiceAsUser(Intent service, UserHandle user) {
         return null;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Jzvd.releaseAllVideos();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (Jzvd.backPress()) {
+            return;
+        }
+        super.onBackPressed();
     }
 
     @Override

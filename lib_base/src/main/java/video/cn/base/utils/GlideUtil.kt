@@ -41,6 +41,7 @@ class GlideUtil {
                             if (imageListener != null && resource != null) {
                                 imageListener.onReady(resource)
                             }
+                            imageView.setImageDrawable(resource)
                             return true
                         }
                     })
@@ -69,6 +70,7 @@ class GlideUtil {
                             if (imageListener != null && resource != null) {
                                 imageListener.onReady(resource)
                             }
+                            imageView.setImageDrawable(resource)
                             return true
                         }
                     })

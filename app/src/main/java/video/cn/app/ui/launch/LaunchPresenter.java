@@ -1,6 +1,6 @@
 package video.cn.app.ui.launch;
 
-import com.husy.network.CallListener;
+import com.husy.network.AbstractCallListener;
 import com.husy.network.RetrofitClient;
 import com.husy.network.bingimage.LaunchImageRequest;
 import com.husy.network.bingimage.LaunchResponse;
@@ -25,7 +25,7 @@ public class LaunchPresenter extends BasePresenter<LaunchContract.LaunchView> im
             .getImage(1)
             .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(new CallListener<LaunchResponse>() {
+            .subscribe(new AbstractCallListener<LaunchResponse>() {
                 @Override
                 public void onResponse(LaunchResponse launchResponse) {
                     if (iView == null || launchResponse.getImages() == null

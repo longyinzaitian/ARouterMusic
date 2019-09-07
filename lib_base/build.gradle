@@ -92,7 +92,5 @@ dependencies {
 
     api 'com.youth.banner:banner:1.4.10'
     api 'com.hyman:flowlayout-lib:1.1.2'
-    api('com.shuyu:GSYVideoPlayer:6.0.3') {
-        exclude group: "com.android.support", module: 'support-v4'
-    }
+    api 'cn.jzvd:jiaozivideoplayer:7.0.5'
 }

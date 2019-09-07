@@ -25,6 +25,14 @@ public class ItemList implements Parcelable {
     public ItemList() {
     }
 
+    @Override
+    public String toString() {
+        return "ItemList{" +
+                "type='" + type + '\'' +
+                ", data=" + data +
+                '}';
+    }
+
     protected ItemList(Parcel in) {
         this.type = in.readString();
         this.data = in.readParcelable(Data.class.getClassLoader());

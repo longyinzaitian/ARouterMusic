@@ -2,4 +2,4 @@
 *.iml
 /.gradle/*
 /.idea/*
-/ui_plugin/build/*
+ui_plugin/build
