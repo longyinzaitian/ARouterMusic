@@ -1,5 +1,6 @@
 package video.cn.home.fragment.home;
 
+import com.husy.network.bingimage.LaunchResponse;
 import com.husy.network.model.ItemList;
 
 import java.util.List;
@@ -31,7 +32,7 @@ public interface HomeContract {
          * set banners
          * @param images list
          */
-        void setBanner(List<String> images);
+        void setBanner(List<LaunchResponse.LaunchImage> images);
     }
 
     interface MainPresenter extends IPresenter {

@@ -36,10 +36,19 @@ public abstract class AbstractCustomRecyclerScrollListener extends RecyclerView.
         if (lastVisibleItem > linearLayoutManager.getItemCount() - 3) {
             onLoadMore();
         }
+
+        onScroll(recyclerView, firstVisibleItem);
     }
 
     /**
      * load more
      */
     public abstract void onLoadMore();
+
+    /**
+     * on scroll
+     * @param recyclerView recycle view
+     * @param firstVisibleItem int
+     */
+    public abstract void onScroll(RecyclerView recyclerView, int firstVisibleItem);
 }

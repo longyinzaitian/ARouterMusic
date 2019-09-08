@@ -8,15 +8,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.husy.network.bingimage.LaunchResponse;
 import com.husy.network.model.ItemList;
 
 import java.util.List;
 
+import video.cn.base.base.AbstractCustomRecyclerScrollListener;
 import video.cn.base.base.BaseAdapter;
 import video.cn.base.base.BaseFragment;
-import video.cn.base.base.AbstractCustomRecyclerScrollListener;
+import video.cn.base.utils.LogUtil;
 import video.cn.base.utils.RouteUtils;
 import video.cn.home.R;
 import video.cn.home.adapter.home.HomeFrAdapter;
@@ -27,7 +30,9 @@ import video.cn.home.adapter.home.HomeFrAdapter;
  */
 @Route(path = RouteUtils.HOME_FRAGMENT_MAIN)
 public class HomeFragment extends BaseFragment implements HomeContract.MainView {
+    private static final int SEARCH_HEIGHT = 400;
 
+    private RelativeLayout mSearchRv;
     private RecyclerView mRecyclerView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private HomeContract.MainPresenter mHomePresenter;
@@ -50,6 +55,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.MainView 
     private void initView(@NonNull View view) {
         mRecyclerView = view.findViewById(R.id.home_recycler);
         mSwipeRefreshLayout = view.findViewById(R.id.home_swipe_refresh);
+        mSearchRv = view.findViewById(R.id.home_search_rv);
 
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -62,6 +68,13 @@ public class HomeFragment extends BaseFragment implements HomeContract.MainView 
 
         mHomeFrAdapter = new HomeFrAdapter(getActivity());
         mRecyclerView.setAdapter(mHomeFrAdapter);
+
+        mSearchRv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         mHomeFrAdapter.setListListener(new BaseAdapter.ListListener<ItemList>() {
             @Override
@@ -79,6 +92,27 @@ public class HomeFragment extends BaseFragment implements HomeContract.MainView 
             @Override
             public void onLoadMore() {
                 HomeFragment.this.loadMore();
+            }
+
+            @Override
+            public void onScroll(RecyclerView recyclerView, int firstVisibleItem) {
+                if (firstVisibleItem == 0) {
+                    int top = -recyclerView.getChildAt(0).getTop();
+                    if (top < 0) {
+                        return;
+                    }
+
+                    LogUtil.Companion.i("tag", "top:" + top + ", first visible item:" + firstVisibleItem);
+                    float alpha = (SEARCH_HEIGHT + 0.0f - top)/SEARCH_HEIGHT;
+                    if (alpha < 0) {
+                        alpha = 0;
+                    }
+
+                    if (alpha >= 0.8f) {
+                        alpha = 0.8f;
+                    }
+                    mSearchRv.setAlpha(alpha);
+                }
             }
         });
     }
@@ -106,7 +140,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.MainView 
     }
 
     @Override
-    public void setBanner(List<String> images) {
+    public void setBanner(List<LaunchResponse.LaunchImage> images) {
         mHomeFrAdapter.setBanner(images);
     }
 }

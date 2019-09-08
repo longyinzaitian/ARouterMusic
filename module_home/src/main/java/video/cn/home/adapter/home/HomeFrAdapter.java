@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.husy.network.bingimage.LaunchResponse;
 import com.husy.network.model.ItemList;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class HomeFrAdapter extends BaseAdapter<ItemList> {
     private static final int TYPE_BANNER = 1;
     private static final int TYPE_VIDEO = 2;
     private static final int TYPE_TEXT_HEADER = 3;
-    private List<String> images = new ArrayList<>();
+    private List<LaunchResponse.LaunchImage> images = new ArrayList<>();
 
     public HomeFrAdapter(Context context) {
         super(context);
@@ -48,7 +49,7 @@ public class HomeFrAdapter extends BaseAdapter<ItemList> {
     @Override
     protected RecyclerView.ViewHolder onCreateViewHolder(int type, View view) {
         if (type == TYPE_BANNER) {
-            return new HomeBannerViewHolder(view);
+            return new HomeBannerViewHolder(context, view);
         } else if (type == TYPE_VIDEO) {
             return new HomeVideoViewHolder(context, view);
         } else if (type == TYPE_TEXT_HEADER) {
@@ -90,7 +91,7 @@ public class HomeFrAdapter extends BaseAdapter<ItemList> {
         return super.getItemViewType(position);
     }
 
-    public void setBanner(List<String> images) {
+    public void setBanner(List<LaunchResponse.LaunchImage> images) {
         if (images == null || images.isEmpty()) {
             return;
         }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/frm_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/app_name"/>
+
+    <TextView
+        android:id="@+id/frm_image_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="克鲁格国家公园中的黄嘴犀鸟，南非 (© Ben Cranke/Getty Image)"
+        android:layout_gravity="bottom"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:lineSpacingExtra="10dp"
+        />
+
+</FrameLayout>

@@ -11,7 +11,6 @@ import com.husy.network.model.Daily;
 import com.husy.network.model.ItemList;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -78,16 +77,7 @@ public class HomeFrPresenter extends BasePresenter<HomeContract.MainView>
                         }
 
                         List<LaunchResponse.LaunchImage> images = launchResponse.getImages();
-                        List<String> imageList = new ArrayList<>();
-                        if (images != null) {
-                            for (LaunchResponse.LaunchImage image : images) {
-                                imageList.add("https://cn.bing.com" + image.getUrl());
-                            }
-                        }
-                        if (imageList.isEmpty()) {
-                            imageList.add("http://img.kaiyanapp.com/eef24aa10ab6cf17b5a512943ec22053.jpeg?imageMogr2/quality/60/format/jpg");
-                        }
-                        iView.setBanner(imageList);
+                        iView.setBanner(images);
                         iView.setData(itemLists);
                         getHomeInfoMore();
                     }

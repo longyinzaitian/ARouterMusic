@@ -33,7 +33,7 @@ public class LaunchPresenter extends BasePresenter<LaunchContract.LaunchView> im
                         return;
                     }
 
-                    iView.showFlash("https://cn.bing.com" + launchResponse.getImages().get(0).getUrl());
+                    iView.showFlash(launchResponse.getImages().get(0).getUrl());
                 }
 
                 @Override

@@ -1,5 +1,8 @@
 package com.husy.network.bingimage;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -7,7 +10,7 @@ import java.util.List;
  * @author husy
  * @date 2019/8/31
  */
-public class LaunchResponse {
+public class LaunchResponse implements Parcelable {
     private List<LaunchImage> images;
     private ToolTips tooltips;
 
@@ -35,7 +38,7 @@ public class LaunchResponse {
                 '}';
     }
 
-    public class LaunchImage {
+    public static class LaunchImage implements Parcelable {
         private String startdate;
         private String enddate;
         private String fullstartdate;
@@ -75,7 +78,7 @@ public class LaunchResponse {
         }
 
         public String getUrl() {
-            return url;
+            return "https://cn.bing.com" + url;
         }
 
         public void setUrl(String url) {
@@ -172,9 +175,62 @@ public class LaunchResponse {
                     ", bot=" + bot +
                     '}';
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(this.startdate);
+            dest.writeString(this.enddate);
+            dest.writeString(this.fullstartdate);
+            dest.writeString(this.url);
+            dest.writeString(this.urlbase);
+            dest.writeString(this.copyright);
+            dest.writeString(this.copyrightlink);
+            dest.writeString(this.title);
+            dest.writeString(this.quiz);
+            dest.writeByte(this.wp ? (byte) 1 : (byte) 0);
+            dest.writeInt(this.drk);
+            dest.writeInt(this.top);
+            dest.writeInt(this.bot);
+        }
+
+        public LaunchImage() {
+        }
+
+        protected LaunchImage(Parcel in) {
+            this.startdate = in.readString();
+            this.enddate = in.readString();
+            this.fullstartdate = in.readString();
+            this.url = in.readString();
+            this.urlbase = in.readString();
+            this.copyright = in.readString();
+            this.copyrightlink = in.readString();
+            this.title = in.readString();
+            this.quiz = in.readString();
+            this.wp = in.readByte() != 0;
+            this.drk = in.readInt();
+            this.top = in.readInt();
+            this.bot = in.readInt();
+        }
+
+        public static final Creator<LaunchImage> CREATOR = new Creator<LaunchImage>() {
+            @Override
+            public LaunchImage createFromParcel(Parcel source) {
+                return new LaunchImage(source);
+            }
+
+            @Override
+            public LaunchImage[] newArray(int size) {
+                return new LaunchImage[size];
+            }
+        };
     }
 
-    public class ToolTips {
+    public static class ToolTips implements Parcelable {
         private String loading;
         private String previous;
         private String next;
@@ -231,5 +287,73 @@ public class LaunchResponse {
                     ", walls='" + walls + '\'' +
                     '}';
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(this.loading);
+            dest.writeString(this.previous);
+            dest.writeString(this.next);
+            dest.writeString(this.walle);
+            dest.writeString(this.walls);
+        }
+
+        public ToolTips() {
+        }
+
+        protected ToolTips(Parcel in) {
+            this.loading = in.readString();
+            this.previous = in.readString();
+            this.next = in.readString();
+            this.walle = in.readString();
+            this.walls = in.readString();
+        }
+
+        public static final Creator<ToolTips> CREATOR = new Creator<ToolTips>() {
+            @Override
+            public ToolTips createFromParcel(Parcel source) {
+                return new ToolTips(source);
+            }
+
+            @Override
+            public ToolTips[] newArray(int size) {
+                return new ToolTips[size];
+            }
+        };
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeTypedList(this.images);
+        dest.writeParcelable(this.tooltips, flags);
+    }
+
+    public LaunchResponse() {
+    }
+
+    protected LaunchResponse(Parcel in) {
+        this.images = in.createTypedArrayList(LaunchImage.CREATOR);
+        this.tooltips = in.readParcelable(ToolTips.class.getClassLoader());
+    }
+
+    public static final Creator<LaunchResponse> CREATOR = new Creator<LaunchResponse>() {
+        @Override
+        public LaunchResponse createFromParcel(Parcel source) {
+            return new LaunchResponse(source);
+        }
+
+        @Override
+        public LaunchResponse[] newArray(int size) {
+            return new LaunchResponse[size];
+        }
+    };
 }
