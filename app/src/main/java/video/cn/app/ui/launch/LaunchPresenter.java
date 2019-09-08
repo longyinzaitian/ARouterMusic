@@ -1,5 +1,7 @@
 package video.cn.app.ui.launch;
 
+import android.content.Context;
+
 import com.husy.network.AbstractCallListener;
 import com.husy.network.RetrofitClient;
 import com.husy.network.bingimage.LaunchImageRequest;
@@ -8,6 +10,7 @@ import com.husy.network.bingimage.LaunchResponse;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import video.cn.base.base.BasePresenter;
+import video.cn.base.utils.SpUtil;
 
 /**
  * @author husy
@@ -33,7 +36,9 @@ public class LaunchPresenter extends BasePresenter<LaunchContract.LaunchView> im
                         return;
                     }
 
-                    iView.showFlash(launchResponse.getImages().get(0).getUrl());
+                    String pic = launchResponse.getImages().get(0).getUrl();
+                    iView.showFlash(pic);
+                    SpUtil.saveLaunchPic((Context) iView, pic);
                 }
 
                 @Override

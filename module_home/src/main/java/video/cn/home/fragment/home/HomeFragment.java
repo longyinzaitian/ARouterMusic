@@ -1,5 +1,6 @@
 package video.cn.home.fragment.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -22,6 +23,7 @@ import video.cn.base.base.BaseFragment;
 import video.cn.base.utils.LogUtil;
 import video.cn.base.utils.RouteUtils;
 import video.cn.home.R;
+import video.cn.home.act.search.SearchActivity;
 import video.cn.home.adapter.home.HomeFrAdapter;
 
 /**
@@ -31,6 +33,7 @@ import video.cn.home.adapter.home.HomeFrAdapter;
 @Route(path = RouteUtils.HOME_FRAGMENT_MAIN)
 public class HomeFragment extends BaseFragment implements HomeContract.MainView {
     private static final int SEARCH_HEIGHT = 400;
+    private static final float SEARCH_ALPHA = 0.8f;
 
     private RelativeLayout mSearchRv;
     private RecyclerView mRecyclerView;
@@ -72,7 +75,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.MainView 
         mSearchRv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(getActivity(), SearchActivity.class));
             }
         });
 
@@ -108,8 +111,8 @@ public class HomeFragment extends BaseFragment implements HomeContract.MainView 
                         alpha = 0;
                     }
 
-                    if (alpha >= 0.8f) {
-                        alpha = 0.8f;
+                    if (alpha >= SEARCH_ALPHA) {
+                        alpha = SEARCH_ALPHA;
                     }
                     mSearchRv.setAlpha(alpha);
                 }
