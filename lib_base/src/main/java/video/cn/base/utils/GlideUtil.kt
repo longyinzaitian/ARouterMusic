@@ -1,6 +1,7 @@
 package video.cn.base.utils
 
 import android.app.Activity
+import android.content.Context
 import android.graphics.drawable.Drawable
 import android.support.v4.app.Fragment
 import android.widget.ImageView
@@ -8,7 +9,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 
 /**
@@ -55,6 +58,34 @@ class GlideUtil {
                     .load(url)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .centerCrop()
+                    .listener(object : RequestListener<Drawable> {
+                        override fun onLoadFailed(e: GlideException?, model: Any?,
+                                                  target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
+                            if (imageListener != null) {
+                                imageListener.onFailed()
+                            }
+                            return false
+                        }
+
+                        override fun onResourceReady(resource: Drawable?, model: Any?,
+                                                     target: Target<Drawable>?, dataSource: DataSource?,
+                                                     isFirstResource: Boolean): Boolean {
+                            if (imageListener != null && resource != null) {
+                                imageListener.onReady(resource)
+                            }
+                            imageView.setImageDrawable(resource)
+                            return true
+                        }
+                    })
+                    .into(imageView)
+        }
+
+        fun showCircleImage(context: Context, imageView: ImageView,
+                      url:String, imageListener: ImageListener?) {
+            Glide.with(context)
+                    .load(url)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .apply(RequestOptions.bitmapTransform(CircleCrop()))
                     .listener(object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any?,
                                                   target: Target<Drawable>?, isFirstResource: Boolean): Boolean {

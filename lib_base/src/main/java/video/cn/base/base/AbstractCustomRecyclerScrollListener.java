@@ -33,8 +33,13 @@ public abstract class AbstractCustomRecyclerScrollListener extends RecyclerView.
         }
         int firstVisibleItem = linearLayoutManager.findFirstVisibleItemPosition();
         int lastVisibleItem = linearLayoutManager.findLastVisibleItemPosition();
-
+        if (lastVisibleItem > linearLayoutManager.getItemCount() - 3) {
+            onLoadMore();
+        }
     }
 
+    /**
+     * load more
+     */
     public abstract void onLoadMore();
 }

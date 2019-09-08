@@ -104,4 +104,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.MainView 
     public void addData(List<ItemList> itemLists) {
         mHomeFrAdapter.addData(itemLists);
     }
+
+    @Override
+    public void setBanner(List<String> images) {
+        mHomeFrAdapter.setBanner(images);
+    }
 }

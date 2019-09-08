@@ -135,7 +135,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
 
         lists.clear();
         lists.addAll(list);
-        notifyDataSetChanged();
+        notifyItemRangeInserted(0, lists.size());
     }
 
     public void addData(List<T> list) {
@@ -144,7 +144,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
         }
 
         lists.addAll(list);
-        notifyDataSetChanged();
+        notifyItemRangeInserted(lists.size(), list.size());
     }
 
     public void setListListener(ListListener<T> listListener) {

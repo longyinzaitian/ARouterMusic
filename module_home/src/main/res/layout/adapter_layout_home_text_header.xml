@@ -2,17 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:layout_width="0dp"
     android:background="@color/colorPrimary"
-    android:layout_height="50dp">
+    android:visibility="gone"
+    android:layout_height="0dp">
 
     <TextView
         android:id="@+id/adapter_layout_text_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         tools:text="- Sep. 06, Brunch -"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:textColor="@color/white"
+        android:visibility="gone"
         />
 </RelativeLayout>

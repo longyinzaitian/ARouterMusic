@@ -27,7 +27,7 @@ public class HomeFrAdapter extends BaseAdapter<ItemList> {
     private static final int TYPE_BANNER = 1;
     private static final int TYPE_VIDEO = 2;
     private static final int TYPE_TEXT_HEADER = 3;
-
+    private List<String> images = new ArrayList<>();
 
     public HomeFrAdapter(Context context) {
         super(context);
@@ -61,8 +61,6 @@ public class HomeFrAdapter extends BaseAdapter<ItemList> {
     protected void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int pos, ItemList itemList) {
         if (viewHolder instanceof HomeBannerViewHolder) {
             HomeBannerViewHolder homeBannerViewHolder = (HomeBannerViewHolder)viewHolder;
-            List<String> images = new ArrayList<>();
-            images.add(itemList.data.image);
             homeBannerViewHolder.setData(images);
 
         } else if (viewHolder instanceof HomeVideoViewHolder) {
@@ -90,5 +88,15 @@ public class HomeFrAdapter extends BaseAdapter<ItemList> {
             return TYPE_TEXT_HEADER;
         }
         return super.getItemViewType(position);
+    }
+
+    public void setBanner(List<String> images) {
+        if (images == null || images.isEmpty()) {
+            return;
+        }
+
+        this.images.clear();
+        this.images.addAll(images);
+        notifyDataSetChanged();
     }
 }

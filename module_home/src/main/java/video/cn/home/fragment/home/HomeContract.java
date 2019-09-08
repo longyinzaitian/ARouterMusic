@@ -26,6 +26,12 @@ public interface HomeContract {
          * @param itemLists list
          */
         void addData(List<ItemList> itemLists);
+
+        /**
+         * set banners
+         * @param images list
+         */
+        void setBanner(List<String> images);
     }
 
     interface MainPresenter extends IPresenter {

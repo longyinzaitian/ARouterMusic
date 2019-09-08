@@ -2,11 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:layout_marginBottom="10dp">
+
+    <video.cn.home.widget.HomeVideoAuthorView
+        android:id="@+id/home_video_author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <cn.carbs.android.expandabletextview.library.ExpandableTextView
+        android:id="@+id/home_video_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="16dp"
+        android:text="" />
 
     <cn.jzvd.JzvdStd
         android:id="@+id/home_video_player"
         android:layout_width="match_parent"
-        android:layout_height="200dp"/>
+        android:layout_height="200dp"
+        />
+
+    <video.cn.home.widget.HomeVideoMenuView
+        android:id="@+id/home_video_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
