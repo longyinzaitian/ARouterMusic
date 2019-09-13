@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.husy.network.model.Data;
 
 import video.cn.base.utils.GlideUtil;
-import video.cn.base.utils.LogUtil;
+import video.cn.base.utils.ShareUtil;
 import video.cn.base.utils.TimeUtils;
 import video.cn.home.R;
 
@@ -57,7 +57,7 @@ public class HomeVideoAuthorView extends RelativeLayout {
         moreIm.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                LogUtil.Companion.i("videoauthorview", "data:" + data);
+                ShareUtil.share(getContext(), data.playUrl, data.title);
             }
         });
     }

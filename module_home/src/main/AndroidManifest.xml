@@ -27,6 +27,13 @@
 
         <activity android:name=".act.search.SearchActivity"
             android:screenOrientation="portrait"/>
+
+        <activity android:name=".act.query.QueryActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".act.detail.VideoDetailActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

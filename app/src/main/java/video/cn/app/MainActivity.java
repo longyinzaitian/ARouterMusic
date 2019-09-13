@@ -68,6 +68,7 @@ public class MainActivity extends BaseActivity {
     private void setViewPagerAdapter() {
         DemandAdapter mDemandAdapter = new DemandAdapter(getSupportFragmentManager());
         mMViewPager.setAdapter(mDemandAdapter);
+        mMViewPager.setOffscreenPageLimit(fragments.size());
     }
 
     private void setTabBindViewPager() {

@@ -15,6 +15,11 @@ public interface LaunchContract {
          * @param url string
          */
         void showFlash(String url);
+
+        /**
+         * load launch fail
+         */
+        void loadLaunchFail();
     }
 
     interface LaunchPresenter extends IPresenter {

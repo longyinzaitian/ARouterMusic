@@ -18,6 +18,7 @@ import video.cn.base.base.BaseActivity;
 import video.cn.base.utils.GlideUtil;
 import video.cn.base.utils.SpUtil;
 import video.cn.home.R;
+import video.cn.home.act.query.QueryActivity;
 
 /**
  * @author husy
@@ -57,7 +58,16 @@ public class SearchActivity extends BaseActivity implements SearchContract.Searc
         searchIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String key = searchEdit.getText().toString().trim();
+                QueryActivity.launchActivity(SearchActivity.this, key);
+            }
+        });
 
+        flowLayout.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+            @Override
+            public boolean onTagClick(View view, int position, FlowLayout parent) {
+                QueryActivity.launchActivity(SearchActivity.this, searchPresenter.getHotKey(position));
+                return false;
             }
         });
     }

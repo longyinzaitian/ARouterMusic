@@ -27,6 +27,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
     private ListListener<T> listListener;
     protected Context context;
     protected List<T> lists = new ArrayList<>();
+    private boolean isNoMore = false;
 
     public BaseAdapter(Context context) {
         this.context = context;
@@ -49,7 +50,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
             return super.getItemViewType(position);
         }
 
-        if (position >= lists.size()) {
+        if (position >= lists.size()-1) {
             return TYPE_BOTTOM;
         }
         return super.getItemViewType(position);
@@ -128,6 +129,16 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
      */
     protected abstract void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int pos, T t);
 
+    /**
+     * not more data
+     */
+    protected void notMoreData() {
+        if (bottomViewHolder != null) {
+            bottomViewHolder.notMoreData();
+        }
+        isNoMore = true;
+    }
+
     public void setData(List<T> list) {
         if (list == null || list.isEmpty()) {
             return;
@@ -140,6 +151,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
 
     public void addData(List<T> list) {
         if (list == null || list.isEmpty()) {
+            notMoreData();
             return;
         }
 
@@ -161,11 +173,19 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
             bottomView = itemView;
             textView = itemView.findViewById(R.id.adapter_bottom_text_view);
         }
+
+        public void notMoreData() {
+            textView.setText("没有更多...");
+        }
     }
 
     private void setBottomView() {
         if (bottomViewHolder == null) {
             return;
+        }
+
+        if (isNoMore) {
+            bottomViewHolder.notMoreData();
         }
 
         bottomViewHolder.bottomView.setOnClickListener(new View.OnClickListener() {

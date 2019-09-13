@@ -1,5 +1,6 @@
 package video.cn.base.widget;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.StringRes;
@@ -62,8 +63,19 @@ public class CommonTitle extends RelativeLayout {
         mToolbar.setTitle(title);
     }
 
-    private void setToolbar() {
+    public Toolbar getToolbar() {
+        return mToolbar;
+    }
 
+    public void setToolbar() {
+        mToolbar.setNavigationOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getContext() instanceof Activity) {
+                    ((Activity)getContext()).finish();
+                }
+            }
+        });
     }
 
 }

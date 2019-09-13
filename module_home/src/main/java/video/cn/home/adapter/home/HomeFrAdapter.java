@@ -24,6 +24,8 @@ public class HomeFrAdapter extends BaseAdapter<ItemList> {
     private static final String BANNER_TYPE = "banner2";
     private static final String VIDEO_TYPE = "video";
     private static final String TEXT_HEADER_TYPE = "textHeader";
+    private static final String TEXT_CARD = "textCard";
+    private static final String BRIEF_CARD = "briefCard";
 
     private static final int TYPE_BANNER = 1;
     private static final int TYPE_VIDEO = 2;
@@ -86,6 +88,8 @@ public class HomeFrAdapter extends BaseAdapter<ItemList> {
         } else if (itemList.type.equals(VIDEO_TYPE)) {
             return TYPE_VIDEO;
         } else if (itemList.type.equals(TEXT_HEADER_TYPE)) {
+            return TYPE_TEXT_HEADER;
+        } else if (itemList.type.equals(TEXT_CARD) || itemList.type.equals(BRIEF_CARD)) {
             return TYPE_TEXT_HEADER;
         }
         return super.getItemViewType(position);

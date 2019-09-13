@@ -108,7 +108,11 @@ public class HomeFrPresenter extends BasePresenter<HomeContract.MainView>
 
             String[] params = query.split("&");
             if (params.length > 0) {
-                date = Long.valueOf(params[0].split("=")[1]);
+                for(String str : params) {
+                    if (str.indexOf("date") >= 0) {
+                        date = Long.valueOf(str.split("=")[1]);
+                    }
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

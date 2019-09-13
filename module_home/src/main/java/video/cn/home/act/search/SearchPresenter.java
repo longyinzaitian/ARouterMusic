@@ -1,5 +1,7 @@
 package video.cn.home.act.search;
 
+import android.icu.text.RelativeDateTimeFormatter;
+
 import com.husy.network.AbstractCallListener;
 import com.husy.network.home.Api;
 
@@ -14,8 +16,9 @@ import video.cn.base.base.BasePresenter;
  * @date 2019/9/8
  */
 public class SearchPresenter extends BasePresenter<SearchContract.SearchView>
-
         implements SearchContract.SearchPresenter {
+
+    private List<String> hotKeys;
 
     public SearchPresenter(SearchContract.SearchView iView) {
         super(iView);
@@ -34,6 +37,7 @@ public class SearchPresenter extends BasePresenter<SearchContract.SearchView>
                         }
 
                         iView.setHotKeys(response);
+                        hotKeys = response;
                     }
 
                     @Override
@@ -41,5 +45,14 @@ public class SearchPresenter extends BasePresenter<SearchContract.SearchView>
 
                     }
                 });
+    }
+
+    @Override
+    public String getHotKey(int pos) {
+        if (hotKeys == null || hotKeys.isEmpty()) {
+            return null;
+        }
+
+        return hotKeys.get(pos);
     }
 }

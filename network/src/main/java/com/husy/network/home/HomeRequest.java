@@ -29,11 +29,11 @@ public interface HomeRequest {
     Observable<Daily> getDaily();
 
     //获取视频底下回复
-    @GET("v1/replies/video")
+    @GET("v1/replies/video?num=20&type=video")
     Observable<Replies> getReplies(@Query("id") int id);
 
     //获取更多视频底下回复
-    @GET("v1/replies/video?num=10")
+    @GET("v1/replies/video?num=20&type=video")
     Observable<Replies> getReplies(@Query("id")int id, @Query("lastId") int lastId);
 
     //获取发现界面的数据

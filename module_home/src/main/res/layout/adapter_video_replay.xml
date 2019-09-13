@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/replay_avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        tools:src="@drawable/player_start_play_pressed"
+        android:contentDescription="@string/app_name"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/replay_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/replay_avatar"
+        android:layout_marginLeft="20dp"
+        android:lines="1"
+        android:maxLines="1"
+        android:ellipsize="end"
+        tools:text="@string/app_name"
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="15dp"
+        />
+
+    <TextView
+        android:id="@+id/replay_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/replay_name"
+        android:layout_marginLeft="85dp"
+        tools:text="@string/app_name"
+        android:textSize="12dp"
+        android:layout_marginTop="2dp"
+        />
+
+    <TextView
+        android:id="@+id/replay_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/replay_avatar"
+        android:layout_marginLeft="85dp"
+        tools:text="@string/app_name"
+        android:textSize="15dp"
+        android:textColor="@color/bright_foreground_disabled_holo_dark"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="15dp"
+        android:lineSpacingExtra="5dp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        android:layout_below="@id/replay_msg"
+        />
+
+</RelativeLayout>

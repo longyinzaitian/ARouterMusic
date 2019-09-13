@@ -8,6 +8,15 @@ import java.util.List;
  */
 public class SearchResult {
     private List<ItemList> itemList;
+    private String nextPageUrl;
+
+    public String getNextPageUrl() {
+        return nextPageUrl;
+    }
+
+    public void setNextPageUrl(String nextPageUrl) {
+        this.nextPageUrl = nextPageUrl;
+    }
 
     public List<ItemList> getItemList() {
         return itemList;
@@ -15,5 +24,13 @@ public class SearchResult {
 
     public void setItemList(List<ItemList> itemList) {
         this.itemList = itemList;
+    }
+
+    @Override
+    public String toString() {
+        return "SearchResult{" +
+                "itemList=" + itemList +
+                ", nextPageUrl='" + nextPageUrl + '\'' +
+                '}';
     }
 }

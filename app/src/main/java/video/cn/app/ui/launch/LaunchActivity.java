@@ -140,6 +140,11 @@ public class LaunchActivity extends BaseActivity implements LaunchContract.Launc
     }
 
     @Override
+    public void loadLaunchFail() {
+        jump();
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         if (mLaunchPresenter != null) {

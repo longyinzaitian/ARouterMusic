@@ -23,6 +23,7 @@ import video.cn.base.base.BaseFragment;
 import video.cn.base.utils.LogUtil;
 import video.cn.base.utils.RouteUtils;
 import video.cn.home.R;
+import video.cn.home.act.detail.VideoDetailActivity;
 import video.cn.home.act.search.SearchActivity;
 import video.cn.home.adapter.home.HomeFrAdapter;
 
@@ -45,14 +46,15 @@ public class HomeFragment extends BaseFragment implements HomeContract.MainView 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle
             savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home_new, container, false);
+        View view = inflater.inflate(R.layout.fragment_home_new, container, false);
+        initView(view);
+        initData();
+        return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initView(view);
-        initData();
     }
 
     private void initView(@NonNull View view) {
@@ -87,7 +89,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.MainView 
 
             @Override
             public void onItemClick(ItemList itemList) {
-
+                VideoDetailActivity.launchAct(getActivity(), itemList);
             }
         });
 
@@ -115,6 +117,14 @@ public class HomeFragment extends BaseFragment implements HomeContract.MainView 
                         alpha = SEARCH_ALPHA;
                     }
                     mSearchRv.setAlpha(alpha);
+                    if (alpha == 0) {
+                        mSearchRv.setVisibility(View.GONE);
+                    } else {
+                        mSearchRv.setVisibility(View.VISIBLE);
+                    }
+                } else {
+                    mSearchRv.setAlpha(0);
+                    mSearchRv.setVisibility(View.GONE);
                 }
             }
         });

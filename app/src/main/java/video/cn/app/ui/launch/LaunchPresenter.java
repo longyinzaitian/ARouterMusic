@@ -43,7 +43,9 @@ public class LaunchPresenter extends BasePresenter<LaunchContract.LaunchView> im
 
                 @Override
                 public void onFail(Throwable e) {
-
+                    if (iView != null) {
+                        iView.loadLaunchFail();
+                    }
                 }
             });
     }

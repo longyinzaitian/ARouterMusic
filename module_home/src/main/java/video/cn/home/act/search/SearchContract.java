@@ -23,5 +23,12 @@ public interface SearchContract {
          * get hot keys
          */
         void getHotKeys();
+
+        /**
+         * get hot key
+         * @param pos int
+         * @return string
+         */
+        String getHotKey(int pos);
     }
 }

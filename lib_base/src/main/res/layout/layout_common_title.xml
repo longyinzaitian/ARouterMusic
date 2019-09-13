@@ -9,6 +9,7 @@
     tools:title="测试"
     app:titleTextColor="@android:color/white"
     android:layout_centerVertical="true"
-    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    app:navigationIcon="@drawable/jz_back_normal"
+    android:theme="@style/Base.Theme.AppCompat.Light"
+    app:popupTheme="@style/Widget.AppCompat.Light.PopupMenu"
     />
