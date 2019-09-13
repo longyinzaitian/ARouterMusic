@@ -26,6 +26,11 @@
         <activity android:name="video.cn.me.activity.InjectActivity" />
         <activity android:name="video.cn.me.activity.Test2Activity" />
         <activity android:name="video.cn.me.activity.Test3Activity" />
+
+        <activity android:name=".act.AboutActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".act.AuthorActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

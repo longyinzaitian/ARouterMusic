@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <video.cn.base.widget.CommonTitle
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="关于"
+        />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/app_name"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:layout_gravity="center_horizontal"
+        android:textSize="22dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="V1.0.0"
+        android:textSize="18dp"
+        android:gravity="center_horizontal|center_vertical"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:text="申明：本作品中的全部代码仅仅作为学习交流之用，不可用于任何商业之用，由此出现的任何问题与作者本人无关!"
+        android:textSize="22dp"
+        android:lineSpacingMultiplier="1.5"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center_horizontal|center_vertical"
+        />
+
+</LinearLayout>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/frm_me_image"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:contentDescription="@string/app_name"
+        tools:src="@drawable/player_window_bg"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/frm_me_image"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/frm_me_clear"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/tab_user"
+                android:layout_marginLeft="15dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="清除缓存"
+                android:textSize="16dp"
+                android:layout_marginLeft="55dp"
+                />
+
+            <TextView
+                android:id="@+id/frm_me_cache_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="555GB"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="25dp"
+                android:textSize="16dp"
+                />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/ver_line"
+            />
+
+        <RelativeLayout
+            android:id="@+id/frm_me_about_app"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/tab_user"
+                android:layout_marginLeft="15dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="关于产品"
+                android:textSize="16dp"
+                android:layout_marginLeft="55dp"
+                />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/ver_line"
+            />
+
+        <RelativeLayout
+            android:id="@+id/frm_me_author"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/tab_user"
+                android:layout_marginLeft="15dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="联系作者"
+                android:textSize="16dp"
+                android:layout_marginLeft="55dp"
+                />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/ver_line"
+            />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
