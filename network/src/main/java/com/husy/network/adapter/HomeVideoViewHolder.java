@@ -1,4 +1,4 @@
-package video.cn.home.adapter.home;
+package com.husy.network.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,15 +7,15 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.husy.network.R;
 import com.husy.network.model.Data;
+import com.husy.network.widget.HomeVideoAuthorView;
+import com.husy.network.widget.HomeVideoMenuView;
 
 import cn.carbs.android.expandabletextview.library.ExpandableTextView;
 import cn.jzvd.JzvdStd;
 import video.cn.base.utils.GlideUtil;
 import video.cn.base.utils.LogUtil;
-import video.cn.home.R;
-import video.cn.home.widget.HomeVideoAuthorView;
-import video.cn.home.widget.HomeVideoMenuView;
 
 /**
  * @author husy

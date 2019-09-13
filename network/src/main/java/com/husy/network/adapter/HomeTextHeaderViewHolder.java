@@ -1,13 +1,12 @@
-package video.cn.home.adapter.home;
+package com.husy.network.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.husy.network.R;
 import com.husy.network.model.Data;
-
-import video.cn.home.R;
 
 /**
  * @author husy

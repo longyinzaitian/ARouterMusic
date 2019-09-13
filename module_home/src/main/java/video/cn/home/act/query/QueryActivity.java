@@ -1,27 +1,29 @@
 package video.cn.home.act.query;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.husy.network.model.ItemList;
 import com.husy.network.model.SearchResult;
 
 import video.cn.base.base.AbstractCustomRecyclerScrollListener;
 import video.cn.base.base.BaseActivity;
 import video.cn.base.base.BaseAdapter;
+import video.cn.base.utils.RouteUtils;
 import video.cn.base.widget.CommonTitle;
 import video.cn.home.R;
 import video.cn.home.act.detail.VideoDetailActivity;
-import video.cn.home.adapter.home.HomeFrAdapter;
+import com.husy.network.adapter.HomeFrAdapter;
 
 /**
  * @author husy
  * @date 2019/9/9
  */
+@Route(path = RouteUtils.QUERY_SEARCH_ACT)
 public class QueryActivity extends BaseActivity implements QueryContract.QueryView {
 
     private static final String KEY = "query";
@@ -31,12 +33,6 @@ public class QueryActivity extends BaseActivity implements QueryContract.QueryVi
     private QueryPresenter queryPresenter;
     private HomeFrAdapter homeFrAdapter;
     private String queryKey;
-
-    public static void launchActivity(Context context, String key) {
-        Intent intent = new Intent(context, QueryActivity.class);
-        intent.putExtra(KEY, key);
-        context.startActivity(intent);
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

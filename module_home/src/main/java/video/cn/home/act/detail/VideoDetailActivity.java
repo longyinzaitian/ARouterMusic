@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.husy.network.model.Data;
 import com.husy.network.model.ItemList;
 import com.husy.network.model.Replies;
@@ -18,16 +19,18 @@ import video.cn.base.base.AbstractCustomRecyclerScrollListener;
 import video.cn.base.base.BaseActivity;
 import video.cn.base.utils.GlideUtil;
 import video.cn.base.utils.LogUtil;
+import video.cn.base.utils.RouteUtils;
 import video.cn.base.widget.CommonTitle;
 import video.cn.home.R;
 import video.cn.home.adapter.detail.VideoDetailAdapter;
-import video.cn.home.widget.HomeVideoAuthorView;
-import video.cn.home.widget.HomeVideoMenuView;
+import com.husy.network.widget.HomeVideoAuthorView;
+import com.husy.network.widget.HomeVideoMenuView;
 
 /**
  * @author husy
  * @date 2019/9/10
  */
+@Route(path = RouteUtils.HOME_VIDEO_DETAIL)
 public class VideoDetailActivity extends BaseActivity implements VideoDetailContract.VideoDetailView {
 
     private static final String ITEM = "item";

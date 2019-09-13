@@ -1,6 +1,4 @@
-package video.cn.home.act.search;
-
-import android.icu.text.RelativeDateTimeFormatter;
+package video.cn.chat.fragment;
 
 import com.husy.network.AbstractCallListener;
 import com.husy.network.home.Api;

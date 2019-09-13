@@ -28,9 +28,14 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
     protected Context context;
     protected List<T> lists = new ArrayList<>();
     private boolean isNoMore = false;
+    private boolean isShowLoad = true;
 
     public BaseAdapter(Context context) {
         this.context = context;
+    }
+
+    public void setShowMore(boolean isShowLoad) {
+        this.isShowLoad = isShowLoad;
     }
 
     @Override
@@ -40,10 +45,9 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
 
     @Override
     public int getItemCount() {
-        return lists.size() == 0 ? 0 : lists.size() + 1;
+        return lists.size() == 0 ? 0 : (isShowLoad ? lists.size() + 1 : lists.size());
     }
 
-    @CallSuper
     @Override
     public int getItemViewType(int position) {
         if (lists == null || lists.isEmpty() || position < 0) {
@@ -65,7 +69,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
                 + type + ", layout id:" +layoutId + ", type:" + type);
 
         View view = null;
-        if (type > 0) {
+        if (type > 0 && layoutId > 0) {
             view = LayoutInflater.from(context).inflate(layoutId, viewGroup, false);
             if (type == TYPE_BOTTOM) {
                 return new BottomViewHolder(view);

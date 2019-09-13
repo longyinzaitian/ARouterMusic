@@ -40,4 +40,8 @@ public class RouteUtils {
      */
     public static final String NEED_LOGIN_TEST_3 = "/needLogin/main/Test3";
 
+    public static final String QUERY_SEARCH_ACT = "/home/main/Query";
+    public static final String HOME_MAIN_IMAGE = "/home/main/Image";
+    public static final String HOME_VIDEO_DETAIL = "/home/main/detail";
+
 }

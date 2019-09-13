@@ -60,7 +60,12 @@ public class CommonTitle extends RelativeLayout {
     }
 
     public void setText(String title) {
-        mToolbar.setTitle(title);
+        mToolbar.post(new Runnable() {
+            @Override
+            public void run() {
+                mToolbar.setTitle(title);
+            }
+        });
     }
 
     public Toolbar getToolbar() {

@@ -1,9 +1,10 @@
-package video.cn.home.adapter.home;
+package com.husy.network.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.husy.network.R;
 import com.husy.network.bingimage.LaunchResponse;
 import com.husy.network.model.ItemList;
 
@@ -11,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import video.cn.base.base.BaseAdapter;
-import video.cn.home.R;
 
 /**
  * @author husy

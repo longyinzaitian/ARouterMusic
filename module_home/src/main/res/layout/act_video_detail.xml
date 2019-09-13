@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <video.cn.home.widget.HomeVideoAuthorView
+    <com.husy.network.widget.HomeVideoAuthorView
         android:id="@+id/act_video_detail_author"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -21,7 +21,7 @@
         android:layout_height="300dp"
         />
 
-    <video.cn.home.widget.HomeVideoMenuView
+    <com.husy.network.widget.HomeVideoMenuView
         android:id="@+id/act_video_detail_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

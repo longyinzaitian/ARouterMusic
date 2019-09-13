@@ -1,4 +1,4 @@
-package video.cn.home.widget;
+package com.husy.network.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -8,12 +8,12 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.husy.network.R;
 import com.husy.network.model.Data;
 
 import video.cn.base.utils.GlideUtil;
 import video.cn.base.utils.ShareUtil;
 import video.cn.base.utils.TimeUtils;
-import video.cn.home.R;
 
 /**
  * @author husy

@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="video.cn.recommend.MainActivity" />
+
+        <activity android:name=".act.RecommendActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            />
     </application>
 
 </manifest>

@@ -1,77 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/act_search_im"
+    <FrameLayout
+        android:id="@+id/fl_search"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:contentDescription="@string/app_name"
-        tools:src="@drawable/player_window_bg"
-        android:scaleType="centerCrop"
-        />
-
-    <RelativeLayout
-        android:id="@+id/act_search_rv"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_below="@id/act_search_im"
-        android:background="@color/colorPrimary"
-        android:gravity="center_vertical"
-        >
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/bg_search"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:gravity="center_vertical"
-            android:alpha="0.8"
-            >
-
-            <EditText
-                android:id="@+id/act_search_edit"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="输入关键词"
-                android:textSize="18dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="60dp"
-                android:lines="1"
-                android:maxLines="1"
-                android:gravity="center_vertical"
-                android:background="@null"
-                />
-
-            <ImageView
-                android:id="@+id/act_search_ic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/app_name"
-                android:src="@mipmap/ic_search"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
-                android:layout_centerVertical="true"
-                />
-
-        </RelativeLayout>
-
-    </RelativeLayout>
-
-    <com.zhy.view.flowlayout.TagFlowLayout
-        android:id="@+id/act_search_flow_layout"
-        app:max_select="1"
-        app:itemSpacing="10dp"
-        app:lineSpacing="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/act_search_rv"
-        android:padding="10dp">
-    </com.zhy.view.flowlayout.TagFlowLayout>
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

@@ -25,7 +25,7 @@ import video.cn.base.utils.RouteUtils;
 import video.cn.home.R;
 import video.cn.home.act.detail.VideoDetailActivity;
 import video.cn.home.act.search.SearchActivity;
-import video.cn.home.adapter.home.HomeFrAdapter;
+import com.husy.network.adapter.HomeFrAdapter;
 
 /**
  * @author husy

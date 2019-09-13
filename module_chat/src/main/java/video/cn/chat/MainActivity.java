@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 
 import video.cn.base.base.BaseActivity;
+import video.cn.chat.fragment.SearchFragment;
 
 /**
  * @author husyin
@@ -19,7 +20,7 @@ public class MainActivity extends BaseActivity {
     }
     private void initView() {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fl_main, new MainFragment())
+        fragmentManager.beginTransaction().replace(R.id.fl_main, new SearchFragment())
                 .commitAllowingStateLoss();
     }
 }

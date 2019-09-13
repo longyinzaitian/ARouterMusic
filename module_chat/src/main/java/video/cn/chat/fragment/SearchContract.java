@@ -1,4 +1,4 @@
-package video.cn.home.act.search;
+package video.cn.chat.fragment;
 
 import java.util.List;
 

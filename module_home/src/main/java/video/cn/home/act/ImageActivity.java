@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.husy.network.bingimage.LaunchResponse;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.Locale;
 
 import video.cn.base.base.BaseActivity;
+import video.cn.base.utils.RouteUtils;
 import video.cn.home.R;
 import video.cn.home.adapter.image.ImagePagerAdapter;
 import video.cn.home.fragment.image.ImageFragment;
@@ -23,6 +25,7 @@ import video.cn.home.fragment.image.ImageFragment;
  * @author husy
  * @date 2019/9/8
  */
+@Route(path = RouteUtils.HOME_MAIN_IMAGE)
 public class ImageActivity extends BaseActivity {
     private static final String KEY = "launchImages";
     private static final String POSITION = "pos";

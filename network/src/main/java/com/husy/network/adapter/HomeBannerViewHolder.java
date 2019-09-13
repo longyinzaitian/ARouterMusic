@@ -1,10 +1,13 @@
-package video.cn.home.adapter.home;
+package com.husy.network.adapter;
 
 import android.content.Context;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.husy.network.R;
 import com.husy.network.bingimage.LaunchResponse;
 import com.youth.banner.Banner;
 import com.youth.banner.listener.OnBannerListener;
@@ -12,9 +15,8 @@ import com.youth.banner.listener.OnBannerListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import video.cn.home.R;
-import video.cn.home.act.ImageActivity;
-import video.cn.home.util.GlideImageLoader;
+import video.cn.base.utils.GlideImageLoader;
+import video.cn.base.utils.RouteUtils;
 
 /**
  * @author husy
@@ -31,7 +33,10 @@ public class HomeBannerViewHolder extends RecyclerView.ViewHolder {
         banner.setOnBannerListener(new OnBannerListener() {
             @Override
             public void OnBannerClick(int position) {
-                ImageActivity.launchActivity(context, images, position);
+                ARouter.getInstance().build(RouteUtils.HOME_MAIN_IMAGE)
+                        .withInt("pos", position)
+                        .withParcelableArrayList("launchImages", (ArrayList<? extends Parcelable>) images)
+                        .navigation();
             }
         });
     }
@@ -42,7 +47,11 @@ public class HomeBannerViewHolder extends RecyclerView.ViewHolder {
         }
         this.images.clear();
         this.images.addAll(images);
-        banner.setImages(images).setImageLoader(new GlideImageLoader()).start();
+        List<String> strings = new ArrayList<>();
+        for (LaunchResponse.LaunchImage image : images) {
+            strings.add(image.getUrl());
+        }
+        banner.setImages(strings).setImageLoader(new GlideImageLoader()).start();
     }
 
 
