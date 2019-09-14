@@ -68,7 +68,7 @@
 -keepclassmembers class **.R$* {
     public static <fields>;
 }
-
+-dontwarn java.lang.annotation.Annotation
 ################support###############
 -keep class android.support.** { *; }
 -keep interface android.support.** { *; }

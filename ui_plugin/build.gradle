@@ -26,9 +26,7 @@ repositories{
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-    implementation files('libs/androidcommon-toolbox.jar')
-    implementation files('libs/sohu_net.jar')
-    api files('libs/SohuPlayer_V5.6.0__2017_07_04_16_16_release.jar')
+
     implementation "com.android.support:appcompat-v7:${rootProject.ext.support_v}"
     implementation "com.android.support:support-v4:${rootProject.ext.support_v}"
     api project(':lib_base')
