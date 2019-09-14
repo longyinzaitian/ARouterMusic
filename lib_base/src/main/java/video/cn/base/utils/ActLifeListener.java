@@ -38,7 +38,9 @@ public class ActLifeListener implements Application.ActivityLifecycleCallbacks {
 
     @Override
     public void onActivityDestroyed(Activity activity) {
-
+        if (activity == mTopActivity) {
+            mTopActivity = null;
+        }
     }
 
     @Override

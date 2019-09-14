@@ -1,8 +1,11 @@
 package video.cn.base.base;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 /**
  * @author husy
@@ -21,6 +24,14 @@ public abstract class AbstractCustomRecyclerScrollListener extends RecyclerView.
             if (lastVisibleItem > linearLayoutManager.getItemCount() - 3) {
                 onLoadMore();
             }
+            if (view.getContext() instanceof Activity) {
+                Activity activity = (Activity) view.getContext();
+                if (!activity.isFinishing()) {
+                    Glide.get(view.getContext()).getRequestManagerRetriever().get(view.getContext()).resumeRequests();
+                }
+            }
+        } else {
+            Glide.get(view.getContext()).getRequestManagerRetriever().get(view.getContext()).pauseRequests();
         }
     }
 

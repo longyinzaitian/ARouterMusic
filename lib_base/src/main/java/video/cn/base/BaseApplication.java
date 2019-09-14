@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.bumptech.glide.Glide;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -65,6 +66,19 @@ public class BaseApplication extends Application {
 
     @Override
     public void onTerminate() {
+        unregisterActivityLifecycleCallbacks(ActLifeListener.getInstance());
         super.onTerminate();
+    }
+
+    @Override
+    public void onLowMemory() {
+        Glide.get(this).onLowMemory();
+        super.onLowMemory();
+    }
+
+    @Override
+    public void onTrimMemory(int level) {
+        Glide.get(this).onTrimMemory(level);
+        super.onTrimMemory(level);
     }
 }

@@ -37,7 +37,7 @@ public class LaunchActivity extends BaseActivity implements LaunchContract.Launc
     @BindView(R.id.splash_root)
     ImageView mSplashRoot;
 
-    private LaunchContract.LaunchPresenter mLaunchPresenter;
+    private LaunchPresenter mLaunchPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,9 +146,9 @@ public class LaunchActivity extends BaseActivity implements LaunchContract.Launc
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         if (mLaunchPresenter != null) {
             mLaunchPresenter.destroy();
         }
+        super.onDestroy();
     }
 }

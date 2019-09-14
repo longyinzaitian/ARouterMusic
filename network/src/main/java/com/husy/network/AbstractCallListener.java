@@ -2,7 +2,6 @@ package com.husy.network;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
-import video.cn.base.utils.LogUtil;
 import video.cn.base.utils.UiUtils;
 
 /**
@@ -18,7 +17,6 @@ public abstract class AbstractCallListener<T> implements Observer<T> {
 
     @Override
     public void onNext(T o) {
-        LogUtil.Companion.i("AbstractCallListener", " o ->" + o);
         onResponse(o);
     }
 

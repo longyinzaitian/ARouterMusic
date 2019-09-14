@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.request.RequestListener
@@ -27,7 +26,6 @@ class GlideUtil {
                       imageListener: ImageListener?) {
             Glide.with(activity)
                     .load(url)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .centerCrop()
                     .listener(object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any?,
@@ -56,7 +54,6 @@ class GlideUtil {
                       imageListener: ImageListener?) {
             Glide.with(fragment)
                     .load(url)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .centerCrop()
                     .listener(object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any?,
@@ -84,7 +81,6 @@ class GlideUtil {
                       url:String, imageListener: ImageListener?) {
             Glide.with(context)
                     .load(url)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .apply(RequestOptions.bitmapTransform(CircleCrop()))
                     .listener(object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any?,

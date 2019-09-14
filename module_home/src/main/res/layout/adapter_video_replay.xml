@@ -8,7 +8,6 @@
         android:id="@+id/replay_avatar"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        tools:src="@drawable/player_start_play_pressed"
         android:contentDescription="@string/app_name"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="10dp"

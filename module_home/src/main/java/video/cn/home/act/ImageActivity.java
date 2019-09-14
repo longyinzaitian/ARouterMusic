@@ -1,6 +1,5 @@
 package video.cn.home.act;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -34,15 +33,6 @@ public class ImageActivity extends BaseActivity {
     private TextView tvImageNum;
 
     private List<LaunchResponse.LaunchImage> launchImages;
-
-    public static void launchActivity(Context context,
-                                      ArrayList<LaunchResponse.LaunchImage> launchImages,
-                                      int position) {
-        Intent intent = new Intent(context, ImageActivity.class);
-        intent.putParcelableArrayListExtra(KEY, launchImages);
-        intent.putExtra(POSITION, position);
-        context.startActivity(intent);
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -89,5 +79,13 @@ public class ImageActivity extends BaseActivity {
         ImagePagerAdapter pagerAdapter = new ImagePagerAdapter(getSupportFragmentManager(), fragments);
         viewPager.setAdapter(pagerAdapter);
         viewPager.setCurrentItem(position);
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (viewPager != null) {
+            viewPager.removeOnPageChangeListener(onPageChangeListener);
+        }
+        super.onDestroy();
     }
 }

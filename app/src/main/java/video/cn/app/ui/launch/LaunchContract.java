@@ -1,6 +1,5 @@
 package video.cn.app.ui.launch;
 
-import video.cn.base.base.IPresenter;
 import video.cn.base.base.IView;
 
 /**
@@ -22,7 +21,7 @@ public interface LaunchContract {
         void loadLaunchFail();
     }
 
-    interface LaunchPresenter extends IPresenter {
+    interface LaunchPresenter {
         /**
          * 获取图片
          */

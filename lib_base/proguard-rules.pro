@@ -223,4 +223,4 @@
 
 -keep class tv.danmaku.ijk.media.player.** {*; }
 -dontwarn tv.danmaku.ijk.media.player.*
--keep interface tv.danmaku.ijk.media.player.** { *; }}
+-keep interface tv.danmaku.ijk.media.player.** { *; }
