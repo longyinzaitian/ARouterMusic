@@ -51,8 +51,14 @@ public class HomeVideoAuthorView extends RelativeLayout {
     }
 
     public void setInfo(final Data data) {
-        GlideUtil.Companion.showCircleImage(getContext(), imageView, data.author.getIcon(), null);
-        nameTx.setText(data.author.getName());
+        if (data.author != null) {
+            GlideUtil.Companion.showCircleImage(getContext(), imageView, data.author.getIcon(), null);
+        }
+
+        if (data.author != null) {
+            nameTx.setText(data.author.getName());
+        }
+
         timeTx.setText(TimeUtils.getTimeFormat(data.releaseTime));
         moreIm.setOnClickListener(new OnClickListener() {
             @Override
