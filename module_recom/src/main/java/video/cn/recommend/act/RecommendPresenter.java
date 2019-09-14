@@ -69,6 +69,10 @@ public class RecommendPresenter extends BasePresenter<RecommendContract.Recommen
                     continue;
                 }
 
+                if (itemList.data == null) {
+                    continue;
+                }
+
                 List<ItemList> innerList = itemList.data.itemList;
                 if (innerList == null || innerList.isEmpty()) {
                     continue;
